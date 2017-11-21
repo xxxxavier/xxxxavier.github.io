@@ -221,7 +221,7 @@
                 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -243,71 +243,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。</p>
-<p>首先Markdown是兼容HTML的，可以直接在文档中直接使用HTML撰写，值得注意的是在HTML区块标签间的Markdown格式语法不会被处理。</p>
-<h3 id="区块引用-Blockquote"><a href="#区块引用-Blockquote" class="headerlink" title="区块引用 Blockquote"></a>区块引用 Blockquote</h3><p>Markdown中使用&gt;符号表示引用部分，在引用部分中可以嵌套引用或者使用其他Markdown语法，具体的样式如下：</p>
-<pre>
-<code>
-
-> ## 这是引用的标题
-> 这是引用的内容
-> > 这是嵌套引用
-
-</code>
-</pre>
-
-<p>以上代码具体的样式是这样的：</p>
-<blockquote>
-<h2 id="这是引用的标题"><a href="#这是引用的标题" class="headerlink" title="这是引用的标题"></a>这是引用的标题</h2><p>这是引用的内容</p>
-<blockquote>
-<p>这是嵌套引用</p>
-</blockquote>
-</blockquote>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>Markdown中有有序列表和无序列表，有序表使用数字和一点表示，比如（1.），无序表使用*/+/-三种符号表示，三种符号是等价的</p>
-<pre>
-<code>
-
-1. 第一条
-2. 第二条
-* 一点
-* 两点
-
-</code>
-</pre>
-
-<p>生成之后的格式</p>
-<ol>
-<li>第一条</li>
-<li>第二条</li>
-</ol>
-<ul>
-<li>一点</li>
-<li>两点  </li>
-</ul>
-<p>注意如果上一段的2.和*之间没有产生空格的话，*会变成3</p>
-<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><p>代码区块使用<code>\<pre\></pre\></code>和<code>\<code\></code\></code>将代码包裹起来，生成的样式在前两部分中都有展示。<br>在hexo中，由于会使用到代码高亮，可以是用另一种方式取包裹代码。</p>
-<pre>
-<code>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</code>
-</pre>
-
-<p>生成样式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更多语言的例子可以参看tranquilpeak的<a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/2015/03/23/highlighted-code-showcase/" target="_blank" rel="external">Demo</a>我是用的hexo模板就是tranquilpeak。</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。<br>
                     
+                        <a href="/2017/11/20/markdown-guide/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/11/20/markdown-guide/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -648,7 +590,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
