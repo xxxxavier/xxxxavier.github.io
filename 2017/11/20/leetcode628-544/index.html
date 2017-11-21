@@ -6,25 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>炸酱面 - This is my story</title>
+    <title>544. Output Contest Matches/628. Maximum Product of Three Numbers - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="想来想去不知道再测试阶段给文章的题目取什么名字比较好，那就用今天的午饭吧。今天打算修改tag，categories两部分。昨天修改了左边框的图片，但是感觉图片加载太慢了，应该是因为图片过大导致的，今天尽量将图片压缩一下。">
-<meta name="keywords" content="Test,日常">
+    <meta name="description" content="今天说两道水题，544. Output Contest Matches和628. Maximum Product of Three Numbers。这两道题都比较简单，我的做题顺序是根据ac率从高到低做的，所以目前也没有遇到什么太难的题。">
+<meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="炸酱面">
-<meta property="og:url" content="http://yoursite.com/2017/11/09/炸酱面/index.html">
+<meta property="og:title" content="544. Output Contest Matches&#x2F;628. Maximum Product of Three Numbers">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/leetcode628-544/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="想来想去不知道再测试阶段给文章的题目取什么名字比较好，那就用今天的午饭吧。今天打算修改tag，categories两部分。昨天修改了左边框的图片，但是感觉图片加载太慢了，应该是因为图片过大导致的，今天尽量将图片压缩一下。">
+<meta property="og:description" content="今天说两道水题，544. Output Contest Matches和628. Maximum Product of Three Numbers。这两道题都比较简单，我的做题顺序是根据ac率从高到低做的，所以目前也没有遇到什么太难的题。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-11T06:21:53.872Z">
+<meta property="og:updated_time" content="2017-11-21T00:07:36.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="炸酱面">
-<meta name="twitter:description" content="想来想去不知道再测试阶段给文章的题目取什么名字比较好，那就用今天的午饭吧。今天打算修改tag，categories两部分。昨天修改了左边框的图片，但是感觉图片加载太慢了，应该是因为图片过大导致的，今天尽量将图片压缩一下。">
+<meta name="twitter:title" content="544. Output Contest Matches&#x2F;628. Maximum Product of Three Numbers">
+<meta name="twitter:description" content="今天说两道水题，544. Output Contest Matches和628. Maximum Product of Three Numbers。这两道题都比较简单，我的做题顺序是根据ac率从高到低做的，所以目前也没有遇到什么太难的题。">
     
     
         
@@ -32,9 +32,6 @@
     
         <meta property="og:image" content="http://yoursite.com/assets/images/profile.jpg"/>
     
-    
-        <meta property="og:image" content="https://lh3.googleusercontent.com/TiUbAZCm9g8vsNUjgAqs2be1wzar5DrRepCSqvJph0Lobnwcc7FMNvul-zU5pqCa2X8MZh6px08fLrf4vb5VKboDcla-r1RJHzwfFXH_TtuMsGEuw_rk6Felg89OJS1xOCQdVwNPrafusT0LBebDwpqhZ0hJTcI_Sg8VEKuyAzBLSpcrdG7zbRYoSpnftOSBaH1Kepp7nXzd8aGyWP-YJRGUFZvUsppgKEpSStQHYMheyxHoq4EKGjbi4NrCLkFYXMYG4eXtYUVeKyJFe36zaxdAk4T5Gz_rsNT_HOOIr92D_uPhC2z07YPBGZIk3NvnKMAkzhOeCpatKnV0knBoKK33TFdPG1LbROm3RKWBDu3LJ3FCKNUT0tHdTUmBDrAt0hSQXqiRJLA24CHvdemLXDe_eA8tVGa6iUTFDlipYa0TFpstg73Isiihaa0kQOsagR5uWPaT39S3S5FBLsbu5li1kSK2yWHGWofhRNKmPEwXVVwiVrds3hQP2Xs_7olC2TZ4kmlCWpOcR9PnKU3t9qHToP1nwiY46vABSQbCjnEIwOINczUlYzL9dpyZyKe9wTJjcTmD4Oh0vNh_MPRLTvWlZkpeJmviy_VkR4MM=s1280-no"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://lh3.googleusercontent.com/TiUbAZCm9g8vsNUjgAqs2be1wzar5DrRepCSqvJph0Lobnwcc7FMNvul-zU5pqCa2X8MZh6px08fLrf4vb5VKboDcla-r1RJHzwfFXH_TtuMsGEuw_rk6Felg89OJS1xOCQdVwNPrafusT0LBebDwpqhZ0hJTcI_Sg8VEKuyAzBLSpcrdG7zbRYoSpnftOSBaH1Kepp7nXzd8aGyWP-YJRGUFZvUsppgKEpSStQHYMheyxHoq4EKGjbi4NrCLkFYXMYG4eXtYUVeKyJFe36zaxdAk4T5Gz_rsNT_HOOIr92D_uPhC2z07YPBGZIk3NvnKMAkzhOeCpatKnV0knBoKK33TFdPG1LbROm3RKWBDu3LJ3FCKNUT0tHdTUmBDrAt0hSQXqiRJLA24CHvdemLXDe_eA8tVGa6iUTFDlipYa0TFpstg73Isiihaa0kQOsagR5uWPaT39S3S5FBLsbu5li1kSK2yWHGWofhRNKmPEwXVVwiVrds3hQP2Xs_7olC2TZ4kmlCWpOcR9PnKU3t9qHToP1nwiY46vABSQbCjnEIwOINczUlYzL9dpyZyKe9wTJjcTmD4Oh0vNh_MPRLTvWlZkpeJmviy_VkR4MM=s1280-no" />
     
     
     
@@ -233,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            炸酱面
+            544. Output Contest Matches/628. Maximum Product of Three Numbers
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-11-09T21:52:38-05:00">
+    <time itemprop="datePublished" datetime="2017-11-20T18:42:08-05:00">
 	
-		    11月 09, 2017
+		    11月 20, 2017
     	
     </time>
     
@@ -251,9 +248,11 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>想来想去不知道再测试阶段给文章的题目取什么名字比较好，那就用今天的午饭吧。<br>今天打算修改tag，categories两部分。昨天修改了左边框的图片，但是感觉图片加载太慢了，应该是因为图片过大导致的，今天尽量将图片压缩一下。<br><a id="more"></a><br>另外今天测试一下贴图。</p>
-<p>thunbnailImage这个功能有点问题，图片大小和位置并没有改变。明天再改</p>
-<p>来自双11的更新，今天发现了昨天thunbnailImage没有生效的原因，thunbnailImage需要和 \&lt;!-- more --> 或者 \&lt;!-- more -->搭配使用。今天出现了一个问题是google photo中的图不能用了，首页的siderbar图片变成了空白。</p>
+            <p>今天说两道水题，544. Output Contest Matches和628. Maximum Product of Three Numbers。这两道题都比较简单，我的做题顺序是根据ac率从高到低做的，所以目前也没有遇到什么太难的题。<br><a id="more"></a><br>先说544，第一次做对String处理的题目，还是先贴题目描述。<br><blockquote><p>During the NBA playoffs, we always arrange the rather strong team to play with the rather weak team, like make the rank 1 team play with the rank nth team, which is a good strategy to make the contest more interesting. Now, you’re given n teams, you need to output their final contest matches in the form of a string.</p>
+<p>The n teams are given in the form of positive integers from 1 to n, which represents their initial rank. (Rank 1 is the strongest team and Rank n is the weakest team.) We’ll use parentheses(‘(‘, ‘)’) and commas(‘,’) to represent the contest team pairing - parentheses(‘(‘ , ‘)’) for pairing and commas(‘,’) for partition. During the pairing process in each round, you always need to follow the strategy of making the rather strong one pair with the rather weak one.</p>
+</blockquote><br>一个例子:<br><blockquote><p>Input: 8<br>Output: (((1,8),(4,5)),((2,7),(3,6)))<br>Explanation:<br>First round: (1,8),(2,7),(3,6),(4,5)<br>Second round: ((1,8),(4,5)),((2,7),(3,6))<br>Third round: (((1,8),(4,5)),((2,7),(3,6)))<br>Since the third round will generate the final winner, you need to output the answer (((1,8),(4,5)),((2,7),(3,6))).</p>
+</blockquote><br>题目没有什么难理解的，我的思路是这样，首先建立一个vector<string> init, 初始化数组为{“1”,”2”,”3”,”4”,”5”,”6”,”7”,”8”}，之后使用一个函数将init[0]和init[7]结合，变成(1,8)，init[1]和init[7]，以此类推，产生新的一个数组，之后再对数组做同样的操作。具体代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; sort(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; s) &#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size() / <span class="number">2</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">string</span> temp = <span class="string">"("</span> + s[i] + <span class="string">","</span> + s[s.size() - i - <span class="number">1</span>] + <span class="string">")"</span>;</span><br><span class="line">		result.push_back(temp);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">findContestMatch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> round = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt; <span class="number">1</span> ; i = i / <span class="number">2</span>) &#123;</span><br><span class="line">		round += <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; init;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">		init.push_back(to_string(j));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; math;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; round; i++) &#123;</span><br><span class="line">		init = sort(init);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">string</span> result;</span><br><span class="line">	<span class="keyword">return</span> init[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>之后是628，一道easy难度的题。<br><blockquote><p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
+</blockquote><br>只需要将数组排序，考虑两种情况，最大值为（n-2，n-1，n）和（0，1，n），一种是正常情况，最大值为最大的三个数的乘积，另一种是有负数的情况下，两个最小值的绝对值比最大值大。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maximumProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">      sort(nums.begin(),nums.end());</span><br><span class="line"><span class="keyword">int</span> temp1 = nums[<span class="number">0</span>] * nums[<span class="number">1</span>] * nums[nums.size() - <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> temp2 = nums[nums.size() - <span class="number">1</span>] * nums[nums.size() - <span class="number">2</span>] * nums[nums.size() - <span class="number">3</span>];</span><br><span class="line"><span class="keyword">return</span> temp1 &gt; temp2 ? temp1 : temp2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></string></p>
 
             
         </div>
@@ -263,7 +262,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Test/">Test</a> <a class="tag tag--primary tag--small t-link" href="/tags/日常/">日常</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
 
             </div>
         
@@ -273,7 +272,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/11/leetcode533/"  data-tooltip="Leetcode 533. Lonely Pixel II">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -281,7 +280,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/08/test/" data-tooltip="第一篇">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/11/leetcode533/" data-tooltip="Leetcode 533. Lonely Pixel II">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -299,7 +298,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -307,7 +306,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -315,7 +314,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -333,6 +332,8 @@
 
 
         
+        
+            
         
     </div>
 </article>
@@ -353,7 +354,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/11/leetcode533/"  data-tooltip="Leetcode 533. Lonely Pixel II">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -361,7 +362,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/08/test/" data-tooltip="第一篇">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/11/leetcode533/" data-tooltip="Leetcode 533. Lonely Pixel II">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -379,7 +380,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -387,7 +388,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -395,7 +396,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -420,7 +421,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -428,7 +429,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -436,7 +437,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/09/炸酱面/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/20/leetcode628-544/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>
@@ -603,6 +604,8 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
     </body>
