@@ -6,21 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>all-categories - This is my story</title>
+    <title>301. Remove Invalid Parentheses - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="all-categories">
-<meta property="og:url" content="http://yoursite.com/all-categories/index.html">
+    <meta name="description" content="今天更新的题目是301. Remove Invalid Parentheses，先贴题目 Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain l">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="301. Remove Invalid Parentheses">
+<meta property="og:url" content="http://yoursite.com/2017/12/26/301/index.html">
 <meta property="og:site_name" content="This is my story">
+<meta property="og:description" content="今天更新的题目是301. Remove Invalid Parentheses，先贴题目 Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain l">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-10T04:12:05.572Z">
+<meta property="og:updated_time" content="2017-12-26T17:16:12.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="all-categories">
+<meta name="twitter:title" content="301. Remove Invalid Parentheses">
+<meta name="twitter:description" content="今天更新的题目是301. Remove Invalid Parentheses，先贴题目 Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain l">
     
     
         
@@ -49,7 +53,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">This is my story</a>
@@ -73,7 +77,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -215,28 +219,125 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
-<div id="categories-archives" class="main-content-wrap">
-    <form id="filter-form" action="##">
-        <input name="category" type="text" class="form-control input--xlarge"
-               placeholder="搜索分类" autofocus="autofocus">
-    </form>
-    <h5 class="archive-result text-color-base text-xlarge"
-        data-message-zero="没有找到分类"
-        data-message-one="找到 1 个分类"
-        data-message-other="找到 {n} 个分类"></h5>
-
-        <section class="boxes">
-        
-    </section>
-    <section class="boxes">
-        
-    </section>
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            301. Remove Invalid Parentheses
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-12-26T11:19:07-05:00">
+	
+		    12月 26, 2017
+    	
+    </time>
+    
 </div>
+
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>今天更新的题目是301. Remove Invalid Parentheses，先贴题目</p>
+<p><pre><br><code><br>Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.</code></pre></p>
+<p>Note: The input string may contain letters other than the parentheses ( and ).<br><br><br>给出的例子是<code>“()())()” -&gt; [“()()()”,”(())()”]</code>和<code>“(a)())()” -&gt; [“(a)()()”, “(a())()”]</code>这道题目看起来跟之前的判定括号数量是否合法的题目有些相似，但是实际做起来却不相同。<br>对于括号的题目，我们首先应该想到的是使用堆（stack），遇到左括号就存入堆中，遇到右括号则出堆。在这道题中我们使用一个变量count来模拟堆操作。首先我们从左向右处理输入的字符串，此时我们处理的是“）”，如果有多余的“）”，会尝试将前面出现的“）”符号其中人一个删除，看得到的结果是否符合要求，这里需要注意的一点是如果原字符串是“））”，这种情况下删除第一个和删除第二个是同样的解。从左向右处理完之后将字符串反转，此时需要处理的是“（”，通过对每个可能的多余符号进行remove操作，当左右括号都满足要求是，该答案就是我们要的解。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//301. Remove Invalid Parentheses</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;result, <span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">char</span> turn[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = m; i &lt; s.size(); i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (s[i] == turn[<span class="number">0</span>]) count++;</span><br><span class="line">		<span class="keyword">if</span> (s[i] == turn[<span class="number">1</span>]) count--;</span><br><span class="line">		<span class="keyword">if</span> (count &gt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = n; j &lt;= i; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (s[j] == turn[<span class="number">1</span>] &amp;&amp; ( j == n || s[j - <span class="number">1</span>] != turn[<span class="number">1</span>])) &#123;</span><br><span class="line">				<span class="built_in">string</span> sub = s.substr(<span class="number">0</span>, j) + s.substr(j + <span class="number">1</span>, s.size());</span><br><span class="line">				remove(sub, result, i, j, turn);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	reverse(s.begin(), s.end());</span><br><span class="line">	<span class="keyword">if</span> (turn[<span class="number">0</span>] == <span class="string">'('</span>) &#123;</span><br><span class="line">		<span class="keyword">char</span> Nturn[] = &#123; <span class="string">')'</span>, <span class="string">'('</span> &#125;;</span><br><span class="line">		remove(s, result, <span class="number">0</span>, <span class="number">0</span>, Nturn);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		result.push_back(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; removeInvalidParentheses(<span class="built_in">string</span> s) &#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">	<span class="keyword">char</span> turn[] = &#123; <span class="string">'('</span>,<span class="string">')'</span> &#125;;</span><br><span class="line">	remove(s, result, <span class="number">0</span>, <span class="number">0</span>, turn);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最近刷题的感受是本科的基础太薄弱了，当时在本科的时候对ACM有些不屑，觉得这个东西跟奥数有些相像，但是这种东西在实际生产中能排上的用处非常少，但是在实际刷题的过程中，我发现做题能帮你更好的理解一些知识点以及帮你补上一些漏洞，C++是我很早之前学的东西，堆栈什么的也是在最早就有接触到的概念，但是不论是堆栈还是map这些东西在之前的开发还是作业中都很少会用到，做题能给我们创造一个场景去使用。</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/20/markdown-guide/" data-tooltip="Markdown学习笔记--引用/列表/代码">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
@@ -245,6 +346,104 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/20/markdown-guide/" data-tooltip="Markdown学习笔记--引用/列表/代码">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/26/301/">
+                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -442,6 +641,8 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
     </body>
