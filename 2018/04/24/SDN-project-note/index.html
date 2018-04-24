@@ -6,25 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>Leetcode 533. Lonely Pixel II - This is my story</title>
+    <title>SDN_project_note - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="今天测试一下代码功能，正好今天刷了一道题Leetcode 533。">
-<meta name="keywords" content="Leetcode">
+    <meta name="description" content="这一篇是记录做SDN project时遇到的问题以及基本的配置过程。内容非常的凌乱，基本是想到一点是一点，解决一点是一点。">
+<meta name="keywords" content="随笔,课程记录">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Leetcode 533. Lonely Pixel II">
-<meta property="og:url" content="http://yoursite.com/2017/11/11/leetcode533/index.html">
+<meta property="og:title" content="SDN_project_note">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/SDN-project-note/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="今天测试一下代码功能，正好今天刷了一道题Leetcode 533。">
+<meta property="og:description" content="这一篇是记录做SDN project时遇到的问题以及基本的配置过程。内容非常的凌乱，基本是想到一点是一点，解决一点是一点。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-11T06:12:10.562Z">
+<meta property="og:updated_time" content="2018-04-24T19:36:57.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 533. Lonely Pixel II">
-<meta name="twitter:description" content="今天测试一下代码功能，正好今天刷了一道题Leetcode 533。">
+<meta name="twitter:title" content="SDN_project_note">
+<meta name="twitter:description" content="这一篇是记录做SDN project时遇到的问题以及基本的配置过程。内容非常的凌乱，基本是想到一点是一点，解决一点是一点。">
     
     
         
@@ -230,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Leetcode 533. Lonely Pixel II
+            SDN_project_note
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-11-11T00:28:08-05:00">
+    <time itemprop="datePublished" datetime="2018-04-24T15:30:51-04:00">
 	
-		    11月 11, 2017
+		    4月 24, 2018
     	
     </time>
     
@@ -248,18 +248,32 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>今天测试一下代码功能，正好今天刷了一道题Leetcode 533。<br><a id="more"></a></p>
-<p>先贴一下题目</p>
-<blockquote><p>Given a picture consisting of black and white pixels, and a positive integer N, find the number of black pixels located at some specific row R and column C that align with all the following rules:</p>
-<pre><code>1.Row R and column C both contain exactly N black pixels.
-2.For all rows that have a black pixel at column C, they should be exactly the same as row R
-</code></pre><p>The picture is represented by a 2D char array consisting of ‘B’ and ‘W’, which means black and white pixels respectively.</p>
-</blockquote>
-<p>这道题目读起来有些费劲，首先rule 1比较容易理解，x[R][C]为B时，第R行，第C列中是否都又N个black pixels。rule 2花了一段时间去理解，意思是要求，第C列中，所有的为’B’的行都要相同，也就是加入第C列为[‘B’,’B’,’W’,’B’,’W’],则第0，1，3行要完全相同。最初的理解是数量相同即可，第一次条之后发现是顺序必须相同，及，第0行为[‘W’,’B’,’B’,’B’],第1，3行也需要是[‘W’,’B’,’B’,’B’]。</p>
-<p>以下是我的AC代码。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findBlackPixel</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; picture, <span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; row(picture.size(), <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; column(picture[<span class="number">0</span>].size(), <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; picture.size(); m++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; picture[<span class="number">0</span>].size(); n++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (picture[m][n] == <span class="string">'B'</span>) &#123;</span><br><span class="line">        row[m] += <span class="number">1</span>;</span><br><span class="line">        column[n] += <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; picture.size(); i++) &#123;</span><br><span class="line">	   <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; picture[<span class="number">0</span>].size(); j++) &#123;</span><br><span class="line">       <span class="keyword">if</span> (picture[i][j] == <span class="string">'B'</span> &amp;&amp; row[i] == N &amp;&amp; column[j] == N) &#123;</span><br><span class="line">         <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">for</span> (; p &lt; picture.size(); p++) &#123;</span><br><span class="line">           <span class="keyword">if</span> (p == i) &#123;</span><br><span class="line">             <span class="keyword">continue</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (picture[p][j] == <span class="string">'B'</span>) &#123;</span><br><span class="line">             <span class="keyword">int</span> q = <span class="number">0</span>;</span><br><span class="line">             <span class="keyword">for</span> (; q &lt; picture[<span class="number">0</span>].size(); q++) &#123;</span><br><span class="line">               <span class="keyword">if</span> (picture[p][q] != picture[i][q])</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">if</span> (q &lt; picture[<span class="number">0</span>].size())</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">if</span> (p == picture.size()) &#123;</span><br><span class="line">           result += <span class="number">1</span>;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是这个结的效率不是很高，时间复杂度应该是O(n^2*m),之后参看discuss中其他人贴出的答案，发现其实这道题可以用map+string的方式去解决。</p>
-<figure class="highlight java"><figcaption><span>https://discuss.leetcode.com/topic/81686/verbose-java-o-m-n-solution-hashmap</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findBlackPixel</span><span class="params">(<span class="keyword">char</span>[][] picture, <span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = picture.length;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = picture[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] colCount = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            String key = scanRow(picture, i, N, colCount);</span><br><span class="line">            <span class="keyword">if</span> (key.length() != <span class="number">0</span>) &#123;</span><br><span class="line">                map.put(key, map.getOrDefault(key, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.get(key) == N) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (key.charAt(j) == <span class="string">'B'</span> &amp;&amp; colCount[j] == N) &#123;</span><br><span class="line">                        result += N;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">scanRow</span><span class="params">(<span class="keyword">char</span>[][] picture, <span class="keyword">int</span> row, <span class="keyword">int</span> target, <span class="keyword">int</span>[] colCount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = picture[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> rowCount = <span class="number">0</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (picture[row][j] == <span class="string">'B'</span>) &#123;</span><br><span class="line">                rowCount++;</span><br><span class="line">                colCount[j]++;</span><br><span class="line">            &#125;</span><br><span class="line">            sb.append(picture[row][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (rowCount == target) <span class="keyword">return</span> sb.toString();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>这一篇是记录做SDN project时遇到的问题以及基本的配置过程。内容非常的凌乱，基本是想到一点是一点，解决一点是一点。<br><a id="more"></a></p>
+<p>GENI配置</p>
+<p>首先是检查IP forwarding是否可以用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.ip_forward</span><br></pre></td></tr></table></figure></p>
+<p>返回值是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.if_forward=0</span><br></pre></td></tr></table></figure></p>
+<p>说明没有打开forwarding功能</p>
+<p>开启forwarding功能<br>两种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br><span class="line">or</span><br><span class="line">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span><br></pre></td></tr></table></figure></p>
+<p>这种方式修改之后不是永久修改，在系统reboot之后重置</p>
+<p>永久设定<br>在/etc/sysctl.conf中添加内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward = 1</span><br></pre></td></tr></table></figure></p>
+<p>要是sysctl.conf中的内容生效，需要执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p /etc/sysctl.conf</span><br></pre></td></tr></table></figure></p>
+<p>在RedHat中也可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure></p>
+<p>在Debian/Ubuntu中可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/procps.sh restart</span><br></pre></td></tr></table></figure></p>
+<p>之后配置其他的节点，node0需要添加静态路由：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route add 175.16.3.0/24 via 175.16.1.2 dev eth1</span><br></pre></td></tr></table></figure></p>
+<p>此时使用node0 ping node2会发现node1不会收到ack但是在node2会的tcpdump中会收到请求<br>此时需要对node2添加静态路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route add 175.16.1.0/24 via 175.16.3.2 dev eth1</span><br></pre></td></tr></table></figure></p>
+<p>此时node0再去ping node2会收到反馈</p>
+<p>之后使node支持ECN<br>首先查看ECN是否开启<br>（疑问，我该试整个路径支持ECN还是让router部分或者仅两端支持ECN）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_ecn</span><br></pre></td></tr></table></figure></p>
+<p>得到的结果是2<br>贴一下介绍<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tcp_ecn - INTEGER</span><br><span class="line">  Control use of Explicit Congestion Notification (ECN) by TCP.</span><br><span class="line">  ECN is used only when both ends of the TCP connection indicate</span><br><span class="line">  support for it.  This feature is useful in avoiding losses due</span><br><span class="line">  to congestion by allowing supporting routers to signal</span><br><span class="line">  congestion before having to drop packets.</span><br><span class="line">  Possible values are:</span><br><span class="line">    0 Disable ECN.  Neither initiate nor accept ECN.</span><br><span class="line">    1 Enable ECN when requested by incoming connections and</span><br><span class="line">      also request ECN on outgoing connection attempts.</span><br><span class="line">    2 Enable ECN when requested by incoming connections</span><br><span class="line">      but do not request ECN on outgoing connections.</span><br><span class="line">  Default: 2</span><br></pre></td></tr></table></figure></p>
+<p>所以我们将这个值设置为1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.ipv4.tcp_ecn=1</span><br></pre></td></tr></table></figure></p>
+<p>简单的拓扑设置完成，下一步是对ECN功能的测试，目标是检查是否又CE的出现<br>  目前的思路是这样，再node0和node3上跑两个程序与node2建立连接，然后node2的server会分析来自node1和node3的包，<br>  报头中是否又CE</p>
+<p>TCP嗅探器（sniffer）<br>在写这个东西的时候用到了SOCK.RAW，这个东西是原生的socket，平时的socket编程使用的是SOCK.STREAM不确定具体是不是这个，<br>stream只会又packet的内容，使用raw可以清晰的看到tcp三次握手的过程</p>
+<p>尝试使用tc命令，但是会导致ecn无效</p>
+<p>尝试使用tc命令成功，但是tc-netem在Ubuntu和CentOS上有区别，所以将VM镜像换成了Ubuntu<br>tc命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tc qdisc add dev ens6 root netem loss 50% ecn</span><br></pre></td></tr></table></figure></p>
+<p>另外找到了一个看throughput的方式，叫做iftop，想办法把他融入到代码里<br><a href="https://serverfault.com/questions/379469/iftop-how-to-generate-text-file-with-its-output" target="_blank" rel="external">https://serverfault.com/questions/379469/iftop-how-to-generate-text-file-with-its-output</a><br>这里有个文本输出的例子</p>
+<p>接下来要做的事情是<br>  1.tc qdisc会一直将loss设为50%，按照实际情况应该是？<br>    这个问题，我昨晚想了一下，这个不需要担心，因为如果这个路由一直会又congestion的问题的话，客户端会一直减速，最终接近为零，所以这是ECN的问题<br>  2.python sniffer中会有一些不是tcp的内容，应该如何处理？<br>    发现昨天的代码里少了一个return，应该不会出现不是tcp的内容了<br>  3.对node的设置，需要一些shell文件，而不是手动<br>  4.完善client和server的代码</p>
+<p>Python的client和server有了替代品，使用iperf可以模拟TCP和UDP<br>对于server端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iperf -s -p 2121</span><br><span class="line">-s server模式</span><br><span class="line">-p 端口</span><br></pre></td></tr></table></figure></p>
+<p>对于client端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iperf -c 175.16.0.1 -p  -t</span><br><span class="line">-c client模式</span><br><span class="line">-p 端口</span><br><span class="line">-t 是传输时间，默认是10秒，但是在测试过程中肯定不会只有10s</span><br></pre></td></tr></table></figure></p>
+<p>另外，对于之前纠结的congestion问题，路由器我们目前使用的Linux VM，VM的queue size非常小，所以非常容易产生congestion</p>
 
             
         </div>
@@ -269,7 +283,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/课程记录/">课程记录</a> <a class="tag tag--primary tag--small t-link" href="/tags/随笔/">随笔</a>
 
             </div>
         
@@ -279,7 +293,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/20/leetcode628-544/"  data-tooltip="544. Output Contest Matches/628. Maximum Product of Three Numbers">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -287,7 +301,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/09/炸酱面/" data-tooltip="炸酱面">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/28/new-plan/" data-tooltip="新计划">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -305,7 +319,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -313,7 +327,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -321,7 +335,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -361,7 +375,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/20/leetcode628-544/"  data-tooltip="544. Output Contest Matches/628. Maximum Product of Three Numbers">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -369,7 +383,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/09/炸酱面/" data-tooltip="炸酱面">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/28/new-plan/" data-tooltip="新计划">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -387,7 +401,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -395,7 +409,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -403,7 +417,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -428,7 +442,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -436,7 +450,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -444,7 +458,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/11/leetcode533/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/24/SDN-project-note/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>
