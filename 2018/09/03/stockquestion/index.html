@@ -6,20 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>This is my story</title>
+    <title>Stock problem - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="This is my story">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="Stock problem is an important part of dynamic programming. In Leetcode, there are six different question about the stock.  Best Time to Buy and Sell Stock Best Time to Buy and Sell Stock II Best Time">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Stock problem">
+<meta property="og:url" content="http://yoursite.com/2018/09/03/stockquestion/index.html">
 <meta property="og:site_name" content="This is my story">
+<meta property="og:description" content="Stock problem is an important part of dynamic programming. In Leetcode, there are six different question about the stock.  Best Time to Buy and Sell Stock Best Time to Buy and Sell Stock II Best Time">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-09-06T02:07:32.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="This is my story">
+<meta name="twitter:title" content="Stock problem">
+<meta name="twitter:description" content="Stock problem is an important part of dynamic programming. In Leetcode, there are six different question about the stock.  Best Time to Buy and Sell Stock Best Time to Buy and Sell Stock II Best Time">
     
     
         
@@ -48,7 +52,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">This is my story</a>
@@ -72,7 +76,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -214,25 +218,22 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
-                <section class="postShorten-group main-content-wrap">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/09/03/stockquestion/">
-                            Stock problem
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Stock problem
+        </h1>
+    
+    
+        <div class="post-meta">
     <time itemprop="datePublished" datetime="2018-09-03T20:13:09-04:00">
 	
 		    9月 03, 2018
@@ -241,10 +242,12 @@
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>Stock problem is an important part of dynamic programming. In Leetcode, there are six different question about the stock.</p>
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>Stock problem is an important part of dynamic programming. In Leetcode, there are six different question about the stock.</p>
 <ul>
 <li>Best Time to Buy and Sell Stock</li>
 <li>Best Time to Buy and Sell Stock II</li>
@@ -315,377 +318,83 @@
 <p>However, this solution have same problem. I get an error ‘terminate called after throwing an instance of ‘std::bad_alloc’ what():  std::bad_alloc.’ According to StackOverflow, it is caused by prices.size(). Then I changed the matrix size, add this <code>k = min(k*2,(int)prices.size());</code> line to my solution, but it still throw an error, <code>Memory Limit Exceeded</code>. Yeah, when k = 1000 and pirces.size() is very large, the matrix will be more larger. So we need another way to presernt the matrix.<br>We can find that in the loop, we will use i and i-1, j and j-1, so we can use two 1-D vector.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(prices.size()==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n = prices.size();</span><br><span class="line">    k = min(k,n);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; local(k+<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; global(k+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j =<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="keyword">int</span> diff = prices[j] - prices[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=k;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">            local[i] = max(local[i]+diff,global[i<span class="number">-1</span>]+max(diff,<span class="number">0</span>));</span><br><span class="line">            global[i] = max(local[i],global[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> global[k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>This solution is an AC solution, I have a query, why I should iterate global from back to front.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (prices.size() &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Every 1 transaction takes 2 days.</span></span><br><span class="line">    <span class="comment">// If k &gt; prices.sz/2, then it is equivalent to infinite transactions</span></span><br><span class="line">    <span class="keyword">if</span> (k &gt; prices.size() / <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; prices.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &gt; prices[i<span class="number">-1</span>]) ans += prices[i] - prices[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Buy triggers transaction count, while sell does not.</span></span><br><span class="line">    <span class="comment">// ans[i][k][0] = max(ans[i-1][k][0], ans[i-1][k][1] + prices[i])</span></span><br><span class="line">    <span class="comment">// ans[i][k][1] = max(ans[i-1][k][1], ans[i-1][k-1][0] - prices[i])</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans_ik0(k + <span class="number">1</span>, <span class="number">0</span>), ans_ik1(k + <span class="number">1</span>, INT_MIN);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p : prices) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">1</span>; c &lt;= k; ++c) &#123;</span><br><span class="line">            ans_ik0[c] = max(ans_ik0[c], ans_ik1[c] + p);</span><br><span class="line">            ans_ik1[c] = max(ans_ik1[c], ans_ik0[c<span class="number">-1</span>] - p);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans_ik0[k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/09/03/stockquestion/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/04/24/SDN-project-note-1/">
-                            SDN Project笔记(2)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-04-24T15:40:18-04:00">
-	
-		    4月 24, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>这些内容是我添加在Github项目README中的，是模拟Explicit Congestion Notification(ECN)功能的部分。<br>
-                    
-                        <a href="/2018/04/24/SDN-project-note-1/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/04/24/SDN-project-note/">
-                            SDN Project笔记(1)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-04-24T15:30:51-04:00">
-	
-		    4月 24, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>这一篇是记录做SDN project时遇到的问题以及基本的配置过程。内容非常的凌乱，基本是想到一点是一点，解决一点是一点。<br>
-                    
-                        <a href="/2018/04/24/SDN-project-note/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/03/28/new-plan/">
-                            新计划
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-28T12:52:42-04:00">
-	
-		    3月 28, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>时隔三个月，我终于又开始更新了。<br>
-                    
-                        <a href="/2018/03/28/new-plan/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/12/26/301/">
-                            301. Remove Invalid Parentheses
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-12-26T11:19:07-05:00">
-	
-		    12月 26, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>今天更新的题目是301. Remove Invalid Parentheses，先贴题目<br>
-                    
-                        <a href="/2017/12/26/301/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/11/20/markdown-guide/">
-                            Markdown学习笔记--引用/列表/代码
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-11-20T19:14:36-05:00">
-	
-		    11月 20, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。<br>
-                    
-                        <a href="/2017/11/20/markdown-guide/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/11/20/leetcode628-544/">
-                            544. Output Contest Matches/628. Maximum Product of Three Numbers
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-11-20T18:42:08-05:00">
-	
-		    11月 20, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>今天说两道水题，544. Output Contest Matches和628. Maximum Product of Three Numbers。这两道题都比较简单，我的做题顺序是根据ac率从高到低做的，所以目前也没有遇到什么太难的题。<br>
-                    
-                        <a href="/2017/11/20/leetcode628-544/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/11/11/leetcode533/">
-                            Leetcode 533. Lonely Pixel II
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-11-11T00:28:08-05:00">
-	
-		    11月 11, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>今天测试一下代码功能，正好今天刷了一道题Leetcode 533。<br>
-                    
-                        <a href="/2017/11/11/leetcode533/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/11/09/炸酱面/">
-                            炸酱面
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-11-09T21:52:38-05:00">
-	
-		    11月 09, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>想来想去不知道再测试阶段给文章的题目取什么名字比较好，那就用今天的午饭吧。<br>今天打算修改tag，categories两部分。昨天修改了左边框的图片，但是感觉图片加载太慢了，应该是因为图片过大导致的，今天尽量将图片压缩一下。<br>
-                    
-                        <a href="/2017/11/09/炸酱面/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-            <a href="/2017/11/09/炸酱面/">
-                <div class="postShorten-thumbnailimg">
-                    <img alt="" itemprop="image" src="https://lh3.googleusercontent.com/TiUbAZCm9g8vsNUjgAqs2be1wzar5DrRepCSqvJph0Lobnwcc7FMNvul-zU5pqCa2X8MZh6px08fLrf4vb5VKboDcla-r1RJHzwfFXH_TtuMsGEuw_rk6Felg89OJS1xOCQdVwNPrafusT0LBebDwpqhZ0hJTcI_Sg8VEKuyAzBLSpcrdG7zbRYoSpnftOSBaH1Kepp7nXzd8aGyWP-YJRGUFZvUsppgKEpSStQHYMheyxHoq4EKGjbi4NrCLkFYXMYG4eXtYUVeKyJFe36zaxdAk4T5Gz_rsNT_HOOIr92D_uPhC2z07YPBGZIk3NvnKMAkzhOeCpatKnV0knBoKK33TFdPG1LbROm3RKWBDu3LJ3FCKNUT0tHdTUmBDrAt0hSQXqiRJLA24CHvdemLXDe_eA8tVGa6iUTFDlipYa0TFpstg73Isiihaa0kQOsagR5uWPaT39S3S5FBLsbu5li1kSK2yWHGWofhRNKmPEwXVVwiVrds3hQP2Xs_7olC2TZ4kmlCWpOcR9PnKU3t9qHToP1nwiY46vABSQbCjnEIwOINczUlYzL9dpyZyKe9wTJjcTmD4Oh0vNh_MPRLTvWlZkpeJmviy_VkR4MM=s1280-no"/>
-                </div>
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/24/SDN-project-note-1/" data-tooltip="SDN Project笔记(2)">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
             </a>
-            
+        </li>
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
             
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/11/08/test/">
-                            第一篇
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-11-08T15:03:00-05:00">
-	
-		    11月 08, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>这是一篇测试文章，搞了半天这个hexo，算是弄好了，这个模板tranquilpeak还需要调教一下，左边的导航栏还需要调节一下，标签需要再修改一下。</p>
-<p>11月8日，开始。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/11/08/test/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
         
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+        
+    </div>
+</article>
+
 
 
                 <footer id="footer" class="main-content-wrap">
@@ -695,6 +404,104 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/24/SDN-project-note-1/" data-tooltip="SDN Project笔记(2)">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/03/stockquestion/">
+                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -968,6 +775,8 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
     </body>
