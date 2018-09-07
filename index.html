@@ -221,7 +221,7 @@
                 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -243,25 +243,14 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>#ECE 542 Homework 2 Note</p>
 <p>In homework 2, we will try basic machine learning algorithms on python.</p>
-<p>##Logistic Regression<br>Refer to the video at <a href="https://www.youtube.com/watch?v=71iXeuKFcQM" target="_blank" rel="external">https://www.youtube.com/watch?v=71iXeuKFcQM</a></p>
-<p>We should load dataset first.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadmnist</span><span class="params">(imagefile,labelfile)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Open the image and label file</span></span><br><span class="line">    images = open(imagefile,<span class="string">'rb'</span>)</span><br><span class="line">    labels = open(labelfile,<span class="string">'rb'</span>)</span><br><span class="line"></span><br><span class="line">    images.read(<span class="number">4</span>)</span><br><span class="line">    number_of_images = images.read(<span class="number">4</span>)</span><br><span class="line">    number_of_images = unpack(<span class="string">'&gt;I'</span>,number_of_images)[<span class="number">0</span>]</span><br><span class="line">    rows = images.read(<span class="number">4</span>)</span><br><span class="line">    rows = unpack(<span class="string">'&gt;I'</span>,rows)[<span class="number">0</span>]</span><br><span class="line">    cols = images.read(<span class="number">4</span>)</span><br><span class="line">    cols = unpack(<span class="string">'&gt;I'</span>,cols)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    labels.read(<span class="number">4</span>)</span><br><span class="line">    N = labels.read(<span class="number">4</span>)</span><br><span class="line">    N = unpack(<span class="string">'&gt;I'</span>,N)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    x = np.zeros((N,rows*cols), dtype=np.uint8)</span><br><span class="line">    y = np.zeros(N,dtype=np.uint8)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(rows*cols):</span><br><span class="line">            tmp_pixel = images.read(<span class="number">1</span>)</span><br><span class="line">            tmp_pixel = unpack(<span class="string">'&gt;B'</span>, tmp_pixel)[<span class="number">0</span>]</span><br><span class="line">            x[i][j] = tmp_pixel</span><br><span class="line">        tmp_label = labels.read(<span class="number">1</span>)</span><br><span class="line">        y[i] = unpack(<span class="string">'&gt;B'</span>,tmp_label)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    images.close()</span><br><span class="line">    labels.close()</span><br><span class="line">    <span class="keyword">return</span> (x,y)</span><br></pre></td></tr></table></figure>
-<p>The format of the file can refer to the website, the first 4 Bytes look like this.<br>| [offset] | [type] | [value] | [description] |<br>| ——– | —— | ——- | ————- |<br>| 0000     | 32 bit integer | 0x00000803(2051) | magic number |<br>| 0004     | 32 bit integer |  10000     |       number of images |<br>|0008      | 32 bit integer | 28         |      number of rows |<br>|0012    | 32 bit integer | 28          |     number of columns |</p>
-<p>At first, I didn’t understand why j in range rows<em>cols. It is because that it content N images, and every image have rows</em>cols pixels.</p>
-<p>After we load the dataset, we should train the algorithms.</p>
-
                     
+                        <a href="/2018/09/06/ECE542Note/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2018/09/06/ECE542Note/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
                     
                 </div>
             
