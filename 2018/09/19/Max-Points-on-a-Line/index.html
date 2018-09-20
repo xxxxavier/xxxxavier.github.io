@@ -6,20 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>归档: 2017/12 - This is my story</title>
+    <title>Max-Points-on-a-Line - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="This is my story">
-<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
+    <meta name="description" content="This question is a hard question. But I don’t think it is hard and it is easy to get a O(n^2) method. It let me realized that float is unreliable, here is a reference, Is floating point math broken? .">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Max-Points-on-a-Line">
+<meta property="og:url" content="http://yoursite.com/2018/09/19/Max-Points-on-a-Line/index.html">
 <meta property="og:site_name" content="This is my story">
+<meta property="og:description" content="This question is a hard question. But I don’t think it is hard and it is easy to get a O(n^2) method. It let me realized that float is unreliable, here is a reference, Is floating point math broken? .">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-09-20T01:25:08.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="This is my story">
+<meta name="twitter:title" content="Max-Points-on-a-Line">
+<meta name="twitter:description" content="This question is a hard question. But I don’t think it is hard and it is easy to get a O(n^2) method. It let me realized that float is unreliable, here is a reference, Is floating point math broken? .">
     
     
         
@@ -48,7 +53,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">This is my story</a>
@@ -72,7 +77,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -214,59 +219,133 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/12/26/301/">
-                            301. Remove Invalid Parentheses
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-12-26T11:19:07-05:00">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Max-Points-on-a-Line
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2018-09-19T20:50:03-04:00">
 	
-		    12月 26, 2017
+		    9月 19, 2018
     	
     </time>
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>今天更新的题目是301. Remove Invalid Parentheses，先贴题目<br>
-                    
-                        <a href="/2017/12/26/301/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>This question is a hard question. But I don’t think it is hard and it is easy to get a O(n^2) method. It let me realized that float is unreliable, here is a reference, <a href="https://stackoverflow.com/questions/588004/is-floating-point-math-broken" target="_blank" rel="external">Is floating point math broken?
+</a>.<br><a id="more"></a><br>Question:</p>
+<blockquote>
+<p>Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.</p>
+</blockquote>
+<p>Example:</p>
+<blockquote>
+<p>Input: [[1,1],[2,2],[3,3]]<br>Output: 3<br>Explanation:<br>^<br>|<br>|        o<br>|     o<br>|  o<br>+————-&gt;<br>0  1  2  3  4</p>
+</blockquote>
+<p>My idea is using a map which key is pair<double, double=""> to save all line in this graph. Line in 2D graph can presented by formula y = kx +b, except lines parallel to the x-axis.</double,></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">int maxPoints(vector&lt;Point&gt;&amp; points) &#123;</span><br><span class="line">    if(points.size()==0) return 0;</span><br><span class="line">    int res = 0;</span><br><span class="line">    map&lt;pair&lt;double,double&gt;,int,&gt; m;</span><br><span class="line">    map&lt;int,int&gt; ax;</span><br><span class="line">    map&lt;int,int&gt; ay;</span><br><span class="line">    for(int i =0;i&lt;points.size();i++)&#123;</span><br><span class="line">        ay[points[i].y]++;</span><br><span class="line">        ax[points[i].x]++;</span><br><span class="line">        res = max(max(ay[points[i].y],ax[points[i].x]),res);</span><br><span class="line">        auto it = m.begin();</span><br><span class="line">        while(it!=m.end())&#123;</span><br><span class="line">            //cout &lt;&lt; points[i].y &lt;&lt; endl;</span><br><span class="line">            //cout &lt;&lt; it-&gt;first.first*points[i].x+it-&gt;first.second &lt;&lt; endl;</span><br><span class="line">            if(points[i].y==it-&gt;first.first*points[i].x+it-&gt;first.second)&#123;</span><br><span class="line">                it-&gt;second = it-&gt;second+1;</span><br><span class="line">                res = max(res,it-&gt;second);</span><br><span class="line">            &#125;</span><br><span class="line">            it++;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int j = i+1;j&lt;points.size();j++)&#123;</span><br><span class="line">            if(points[i].y==points[j].y||points[i].x==points[j].x) continue;</span><br><span class="line">            double k = (points[i].y-points[j].y)*1.0/(points[i].x-points[j].x);</span><br><span class="line">            double b = points[i].y - (k*points[i].x);</span><br><span class="line">            if(m[make_pair(k,b)]!=0) m[make_pair(k,b)]++;</span><br><span class="line">            res = max(m[make_pair(k,b)],res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> The solution looks like correct. When the input is <code>{[[3,1],[12,3],[3,1],[-6,-1]]}</code>, the output is 3. And the correct answer should be 4. And when I check the code, I find the size of m is 2, and both of them has a key is <code>(0.222222, 0.333333)</code>. Is the key same for different element? No! This is what said before, float is unreliable. And the further explanation are listed in the link above.</p>
+<p> In discuss, somebody use GCD to genarate a unique num to present the slope.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">private:</span><br><span class="line">    int GCD(int a, int b) &#123;   </span><br><span class="line">        if(b==0) return a;</span><br><span class="line">        else return GCD(b, a%b);</span><br><span class="line">    &#125;</span><br><span class="line">public:</span><br><span class="line">    int maxPoints(vector&lt;Point&gt;&amp; points) &#123;</span><br><span class="line">        if(points.size()&lt;=2) return points.size();</span><br><span class="line">        int res = 0;</span><br><span class="line">        for(int i =0;i&lt;points.size();i++)&#123;</span><br><span class="line">            map&lt;pair&lt;int,int&gt;,int&gt; m;</span><br><span class="line">            int s = 0, dup =1, local=0;</span><br><span class="line">            for(int j = i+1;j&lt;points.size();j++)&#123;</span><br><span class="line">                if(points[i].x==points[j].x&amp;&amp;points[i].y==points[j].y)&#123;</span><br><span class="line">                    dup++;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;else if(points[i].x==points[j].x)&#123;</span><br><span class="line">                    s++;</span><br><span class="line">                    local = max(local,s);</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                int a = points[i].x-points[j].x, b = points[i].y-points[j].y;</span><br><span class="line">                int gcd = GCD(a,b);</span><br><span class="line">                a = a/gcd;</span><br><span class="line">                b = b/gcd;</span><br><span class="line">                m[make_pair(a,b)]++;</span><br><span class="line">                local = max(local,m[make_pair(a,b)]);</span><br><span class="line">            &#125;</span><br><span class="line">            res = max(local+dup,res);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
+
+            </div>
         
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/17/reachanumber/" data-tooltip="reachanumber">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+        
+    </div>
+</article>
 
 
 
@@ -277,6 +356,104 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/17/reachanumber/" data-tooltip="reachanumber">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/19/Max-Points-on-a-Line/">
+                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -558,6 +735,8 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
     </body>
