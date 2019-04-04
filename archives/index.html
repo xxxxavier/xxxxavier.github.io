@@ -222,7 +222,7 @@
     <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -244,27 +244,18 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <a id="more"></a>
-<blockquote><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <blockquote><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
 <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 <p>Example:</p>
 <p>Given nums = [2, 7, 11, 15], target = 9,</p>
 <p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
 </blockquote>
-<p>第一题，不是什么难题，大概一年多前刚开始刷leetcode的时候想的还是暴力破解$n^2$的方法，现在会马上想到使用map。我们可以用一个map把之前的值保存在遍历某个数的时候查找target-sum时候存在在map中，如果存在则是我们要的答案，这个方法的时间复杂度是O(n)。</p>
-<p>从这道题延申的一点是，java和c++中map的实现，c++中，map, set, multimap, multiset都是通过红黑树实现，插入、查看、删除的时间复杂度都是O(logN), 而在java中是一种数组+链表的实现方式，先依靠hash得到key在数组中的大体位置，然后用链表来规避冲突，因此java中map查找的时间复杂度近似为O(1)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; mp = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.get(target - nums[i]) != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span>[] res = &#123;mp.get(target - nums[i]), i&#125;;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            mp.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
                     
+                        <a href="/2019/04/03/Two-Sum/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2019/04/03/Two-Sum/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -273,7 +264,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -295,54 +286,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <a id="more"></a>
-<p>从去年9月份开始找工作，现在已经4月份了，除了Google和Facebook的两个Onsite之外，没有任何进展，Leetcode刷到了500题但是很多内容都忘了，两次Onsite都是倒在第二轮，题目真的很难么？倒是也没有，更多的是不扎实，Facebook的第二轮是一个二分查找和一个滑动窗口，二分查找写的不好，滑东窗口第一反应没有想出来，问C++中Map的实现，红黑树说成了二叉树，实在是自己不够扎实。所以打算从新开始，再做一遍，文章的题目是仿照我常看Grandyang的题目起的，也希望我能像他一样坚持下来。</p>
-<p>以前刷题都是用C++，这次打算换个方向改用Java，C++依然是我最喜欢的语言，但是作为SDE来说我觉得能用到的场景太少了，在这段找工作的时间，我的观察是中型的公司更喜欢Java/C#，小公司更喜欢Ruby/Python，令我意外的是PHP倒是真的很少。改用Java的原因也是为了提高一下Java的熟练度，如果能遇到合适Java Developer的工作可以跟有竞争力。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">#</th>
-<th style="text-align:center">题目</th>
-<th style="text-align:center">时间复杂度</th>
-<th style="text-align:center">空间复杂度</th>
-<th style="text-align:center">难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Two Sum</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">Easy</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Add Two Numbers</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">Medium</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Longest Substring Without Repeating Characters</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">Medium</td>
-</tr>
-</tbody>
-</table>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>从去年9月份开始找工作，现在已经4月份了，除了Google和Facebook的两个Onsite之外，没有任何进展，Leetcode刷到了500题但是很多内容都忘了，两次Onsite都是倒在第二轮，题目真的很难么？倒是也没有，更多的是不扎实，Facebook的第二轮是一个二分查找和一个滑动窗口，二分查找写的不好，滑东窗口第一反应没有想出来，问C++中Map的实现，红黑树说成了二叉树，实在是自己不够扎实。所以打算从新开始，再做一遍，文章的题目是仿照我常看Grandyang的题目起的，也希望我能像他一样坚持下来。</p>
                     
+                        <a href="/2019/04/03/all-in-one/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2019/04/03/all-in-one/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
                     
                 </div>
             
