@@ -6,25 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>Markdown学习笔记--引用/列表/代码 - This is my story</title>
+    <title>contest - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。">
-<meta name="keywords" content="Blog,Markdown">
+    <meta name="description" content="这篇是用来追踪记录每一个contest的。">
+<meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Markdown学习笔记--引用&#x2F;列表&#x2F;代码">
-<meta property="og:url" content="http://yoursite.com/2017/11/20/markdown-guide/index.html">
+<meta property="og:title" content="contest">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/contest/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。">
+<meta property="og:description" content="这篇是用来追踪记录每一个contest的。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-21T01:12:09.885Z">
+<meta property="og:updated_time" content="2019-04-08T16:56:54.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown学习笔记--引用&#x2F;列表&#x2F;代码">
-<meta name="twitter:description" content="这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。">
+<meta name="twitter:title" content="contest">
+<meta name="twitter:description" content="这篇是用来追踪记录每一个contest的。">
     
     
         
@@ -230,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Markdown学习笔记--引用/列表/代码
+            contest
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-11-20T19:14:36-05:00">
+    <time itemprop="datePublished" datetime="2019-04-08T12:51:07-04:00">
 	
-		    11月 20, 2017
+		    4月 08, 2019
     	
     </time>
     
@@ -248,59 +248,34 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。<br><a id="more"></a><br>首先Markdown是兼容HTML的，可以直接在文档中直接使用HTML撰写，值得注意的是在HTML区块标签间的Markdown格式语法不会被处理。</p>
-<h3 id="区块引用-Blockquote"><a href="#区块引用-Blockquote" class="headerlink" title="区块引用 Blockquote"></a>区块引用 Blockquote</h3><p>Markdown中使用&gt;符号表示引用部分，在引用部分中可以嵌套引用或者使用其他Markdown语法，具体的样式如下：</p>
-<pre>
-<code>
-
-> ## 这是引用的标题
-> 这是引用的内容
-> > 这是嵌套引用
-
-</code>
-</pre>
-
-<p>以上代码具体的样式是这样的：</p>
-<blockquote>
-<h2 id="这是引用的标题"><a href="#这是引用的标题" class="headerlink" title="这是引用的标题"></a>这是引用的标题</h2><p>这是引用的内容</p>
-<blockquote>
-<p>这是嵌套引用</p>
-</blockquote>
-</blockquote>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>Markdown中有有序列表和无序列表，有序表使用数字和一点表示，比如（1.），无序表使用*/+/-三种符号表示，三种符号是等价的</p>
-<pre>
-<code>
-
-1. 第一条
-2. 第二条
-* 一点
-* 两点
-
-</code>
-</pre>
-
-<p>生成之后的格式</p>
-<ol>
-<li>第一条</li>
-<li>第二条</li>
-</ol>
-<ul>
-<li>一点</li>
-<li>两点  </li>
-</ul>
-<p>注意如果上一段的2.和*之间没有产生空格的话，*会变成3</p>
-<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><p>代码区块使用<code>\<pre\></pre\></code>和<code>\<code\></code\></code>将代码包裹起来，生成的样式在前两部分中都有展示。<br>在hexo中，由于会使用到代码高亮，可以是用另一种方式取包裹代码。</p>
-<pre>
-<code>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</code>
-</pre>
-
-<p>生成样式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更多语言的例子可以参看tranquilpeak的<a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/2015/03/23/highlighted-code-showcase/" target="_blank" rel="external">Demo</a>我是用的hexo模板就是tranquilpeak。</p>
+            <p>这篇是用来追踪记录每一个contest的。</p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Week #</th>
+<th style="text-align:center">Rank</th>
+<th style="text-align:center">Score</th>
+<th style="text-align:center">Finish Time</th>
+<th style="text-align:center">Q1</th>
+<th style="text-align:center">Q2</th>
+<th style="text-align:center">Q3</th>
+<th style="text-align:center">Q4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">131</td>
+<td style="text-align:center">1144/4894</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">0:51:30</td>
+<td style="text-align:center">0:15:36</td>
+<td style="text-align:center">0:31:43</td>
+<td style="text-align:center">0:46:30</td>
+<td style="text-align:center">N/A</td>
+</tr>
+</tbody>
+</table>
 
             
         </div>
@@ -310,7 +285,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Blog/">Blog</a> <a class="tag tag--primary tag--small t-link" href="/tags/Markdown/">Markdown</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
 
             </div>
         
@@ -320,7 +295,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/26/301/"  data-tooltip="301. Remove Invalid Parentheses">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2099/04/03/all-in-one/"  data-tooltip="Leetcode Java All in One解题报告">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -328,7 +303,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/20/leetcode628-544/" data-tooltip="544. Output Contest Matches/628. Maximum Product of Three Numbers">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Longest-Substring-Without-Repeating-Characters/" data-tooltip="3. Longest Substring Without Repeating Characters">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -346,7 +321,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -354,7 +329,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -362,7 +337,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -402,7 +377,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/26/301/"  data-tooltip="301. Remove Invalid Parentheses">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2099/04/03/all-in-one/"  data-tooltip="Leetcode Java All in One解题报告">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -410,7 +385,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/20/leetcode628-544/" data-tooltip="544. Output Contest Matches/628. Maximum Product of Three Numbers">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Longest-Substring-Without-Repeating-Characters/" data-tooltip="3. Longest Substring Without Repeating Characters">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -428,7 +403,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -436,7 +411,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -444,7 +419,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -469,7 +444,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -477,7 +452,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -485,7 +460,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/20/markdown-guide/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/contest/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>

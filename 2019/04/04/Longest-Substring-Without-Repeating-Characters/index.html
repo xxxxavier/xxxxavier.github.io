@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="This is my story">
 <meta property="og:description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-08T15:59:47.428Z">
+<meta property="og:updated_time" content="2019-04-08T16:08:44.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3. Longest Substring Without Repeating Characters">
 <meta name="twitter:description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
@@ -257,6 +257,7 @@
 </blockquote>
 <p>这是一道滑动窗口的问题，又让我想起了当时onsite的时候，其实我真的没想到那道题可以用滑动窗口做。</p>
 <p>回到这道题目，其实不是很难，我们需要一个Set去记录重复，需要一个变量<code>left</code>记录当前结果开始的位置，需要一个变量<code>res</code>记录最大值，当在<code>s[i]</code>遇到重复的时候，我们假定于<code>s[i]</code>相同的那个元素在位置<code>j</code>,既s[i] == s[j]并且i&gt;j&gt;=left,我们通过移动left，寻找j的位置，并把j及其之前的值移出Set，构建一个新的没有重复的子字符串。</p>
+<p>考虑时间复杂度和空间复杂度的问题，因为left的存在，所以每个元素最多被访问两次，所以时间复杂度是O(n)。空间复杂度上，最坏的情况是全部没有重复，所以应该也是O(n)。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        Set&lt;Character&gt; cache = <span class="keyword">new</span> HashSet();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)&#123;</span><br><span class="line">            <span class="keyword">while</span>(cache.contains(s.charAt(i)))&#123;</span><br><span class="line">                <span class="comment">//while(s.charAt(left) != s.charAt(i))&#123;</span></span><br><span class="line">                    cache.remove(s.charAt(left));</span><br><span class="line">                    ++left;</span><br><span class="line">                <span class="comment">//&#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            cache.add(s.charAt(i));</span><br><span class="line">            res = Math.max(res, cache.size());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             
         </div>
@@ -269,7 +270,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2099/04/03/all-in-one/"  data-tooltip="Leetcode Java All in One解题报告">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/contest/"  data-tooltip="contest">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -351,7 +352,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2099/04/03/all-in-one/"  data-tooltip="Leetcode Java All in One解题报告">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/contest/"  data-tooltip="contest">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -712,7 +713,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 20 篇文章
+                找到 21 篇文章
             </p>
         </div>
     </div>
