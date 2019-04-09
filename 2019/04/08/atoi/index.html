@@ -6,25 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>Reach a number - This is my story</title>
+    <title>atoi - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
-<meta name="keywords" content="Leetcode">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="Reach a number">
-<meta property="og:url" content="http://yoursite.com/2018/09/17/reachanumber/index.html">
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="atoi">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/atoi/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-26T19:04:29.718Z">
+<meta property="og:updated_time" content="2019-04-09T00:29:32.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reach a number">
-<meta name="twitter:description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+<meta name="twitter:title" content="atoi">
     
     
         
@@ -230,14 +226,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Reach a number
+            atoi
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2018-09-17T20:08:21-04:00">
+    <time itemprop="datePublished" datetime="2019-04-08T20:29:32-04:00">
 	
-		    9月 17, 2018
+		    4月 08, 2019
     	
     </time>
     
@@ -248,39 +244,11 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>I got this question in the online interview of Sohu. I didn’t find the best solution during the test.</p>
-<a id="more"></a>
-<p>Question:</p>
-<blockquote>
-<p>You are standing at position 0 on an infinite number line. There is a goal at position target.</p>
-<p>On each move, you can either go left or right. During the n-th move (starting from 1), you take n steps.</p>
-<p>Return the minimum number of steps required to reach the destination.</p>
-</blockquote>
-<p>Example:</p>
-<blockquote>
-<p>Input: target = 3</p>
-<p>Output: 2</p>
-<p>Explanation:<br>On the first move we step from 0 to 1.<br>On the second step we step from 1 to 3.</p>
-</blockquote>
-<p>In this question, we need to pay attention to 2 points:</p>
-<ul>
-<li>Any N and -N have same result, because N and -N are symmetric with respect to the origin.</li>
-<li>If the sum of previous num is lager than target, and sum - target is even, so we can change the step at (sum - target) / 2 to negative,  and if sum - target is odd, we can continue, until sum - target is even.</li>
-</ul>
-<p>Here is the solution:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">reachNumber</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">1</span>, res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(target&lt;<span class="number">0</span>) target = -target;</span><br><span class="line">    <span class="keyword">while</span>(sum&lt;target||(sum&gt;target&amp;&amp;(sum-target)%<span class="number">2</span>==<span class="number">1</span>))&#123;</span><br><span class="line">        res++;</span><br><span class="line">        sum+=res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>This question is not very hare, but very tricky, especially for the second point.</p>
-
+            
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">标签</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
-
-            </div>
         
         
             <div class="post-actions-wrap">
@@ -288,7 +256,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/19/Max-Points-on-a-Line/"  data-tooltip="Max Points on a Line">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/LRU-Cache/"  data-tooltip="146. LRU Cache">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -296,7 +264,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/06/ECE542Note/" data-tooltip="ECE542Note">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Reverse-Integer/" data-tooltip="7. Reverse Integer">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -314,7 +282,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -322,7 +290,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -330,7 +298,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -370,7 +338,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/19/Max-Points-on-a-Line/"  data-tooltip="Max Points on a Line">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/LRU-Cache/"  data-tooltip="146. LRU Cache">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -378,7 +346,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/06/ECE542Note/" data-tooltip="ECE542Note">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Reverse-Integer/" data-tooltip="7. Reverse Integer">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -396,7 +364,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -404,7 +372,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -412,7 +380,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -437,7 +405,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -445,7 +413,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -453,7 +421,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/atoi/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>

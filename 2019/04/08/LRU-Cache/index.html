@@ -6,25 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>Reach a number - This is my story</title>
+    <title>146. LRU Cache - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+    <meta name="description" content="Leetcode第146题，LRU Cache， 一道非常经典的题目。">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Reach a number">
-<meta property="og:url" content="http://yoursite.com/2018/09/17/reachanumber/index.html">
+<meta property="og:title" content="146. LRU Cache">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/LRU-Cache/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+<meta property="og:description" content="Leetcode第146题，LRU Cache， 一道非常经典的题目。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-26T19:04:29.718Z">
+<meta property="og:updated_time" content="2019-04-09T01:21:49.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reach a number">
-<meta name="twitter:description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+<meta name="twitter:title" content="146. LRU Cache">
+<meta name="twitter:description" content="Leetcode第146题，LRU Cache， 一道非常经典的题目。">
     
     
         
@@ -230,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Reach a number
+            146. LRU Cache
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2018-09-17T20:08:21-04:00">
+    <time itemprop="datePublished" datetime="2019-04-08T20:48:30-04:00">
 	
-		    9月 17, 2018
+		    4月 08, 2019
     	
     </time>
     
@@ -248,28 +248,44 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>I got this question in the online interview of Sohu. I didn’t find the best solution during the test.</p>
-<a id="more"></a>
-<p>Question:</p>
-<blockquote>
-<p>You are standing at position 0 on an infinite number line. There is a goal at position target.</p>
-<p>On each move, you can either go left or right. During the n-th move (starting from 1), you take n steps.</p>
-<p>Return the minimum number of steps required to reach the destination.</p>
-</blockquote>
+            <p>Leetcode第146题，LRU Cache， 一道非常经典的题目。<br><a id="more"></a><br><blockquote><p>Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.</p>
+<p>get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.<br>put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.</p>
+<p>Follow up:<br>Could you do both operations in O(1) time complexity?</p>
 <p>Example:</p>
-<blockquote>
-<p>Input: target = 3</p>
-<p>Output: 2</p>
-<p>Explanation:<br>On the first move we step from 0 to 1.<br>On the second step we step from 1 to 3.</p>
-</blockquote>
-<p>In this question, we need to pay attention to 2 points:</p>
-<ul>
-<li>Any N and -N have same result, because N and -N are symmetric with respect to the origin.</li>
-<li>If the sum of previous num is lager than target, and sum - target is even, so we can change the step at (sum - target) / 2 to negative,  and if sum - target is odd, we can continue, until sum - target is even.</li>
-</ul>
-<p>Here is the solution:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">reachNumber</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">1</span>, res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(target&lt;<span class="number">0</span>) target = -target;</span><br><span class="line">    <span class="keyword">while</span>(sum&lt;target||(sum&gt;target&amp;&amp;(sum-target)%<span class="number">2</span>==<span class="number">1</span>))&#123;</span><br><span class="line">        res++;</span><br><span class="line">        sum+=res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>This question is not very hare, but very tricky, especially for the second point.</p>
-
+<p>LRUCache cache = new LRUCache( 2 /<em> capacity </em>/ );</p>
+<p>cache.put(1, 1);<br>cache.put(2, 2);<br>cache.get(1);       // returns 1<br>cache.put(3, 3);    // evicts key 2<br>cache.get(2);       // returns -1 (not found)<br>cache.put(4, 4);    // evicts key 1<br>cache.get(1);       // returns -1 (not found)<br>cache.get(3);       // returns 3<br>cache.get(4);       // returns 4</p>
+</blockquote></p>
+<p>LRU Cache这个题目在Leetcode里算是经典中的经典了，一直于这道题出了这么久了还会在面试中出现。其实设计一个LRU cache的数据结构本身不是特别难，但是将他限制到所有操作都是O(1)的时间复杂度，就比较麻烦，这道题的考察点主要在于hash和linklist。</p>
+<p>第一次用Java做这一道题，才知道java本身并没有一个内建的double linked list，因此需要自己动手（cpp万岁）。</p>
+<p>这一题的具体思路是利用linked list的特性，我们将最近访问的值永远放置在linked list的头部，因此当linked list的大小超出我们初始时设置的capacity时，我们可以得出，位于linked list最后的值一定是最不活跃的或者说最少被访问的值，因此我们要将他剔除。另外我们需要一个map，因为linked list的特性是无法根据下标访问，因此我们要满足查询操作也达到O（1）的时间复杂度，需要建立一个key和linked list node的关系。</p>
+<p>另外给自己一个note，之前一个电面，15分钟，挂了，不太明白为什么，今天明白了，因为就问了4个tech的问题，所以其中一个没答好就不太可能进入下一轮。其中一个问题是Java中Set和List的区别。这个问题，我非常干脆地把Java的List和C++ STL中的list联系到了一起。但是实际上Java中的list就是array，而C++中的list是Linked List，我还在答案中特地强调了，list是不能根据index访问的，这是大错特错的，因此没有进第二轮也非常的正常，非常的遗憾。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:center">题目</th>
+<th style="text-align:center">时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Duplicates</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center">NO</td>
+</tr>
+<tr>
+<td style="text-align:center">Order</td>
+<td style="text-align:center">ORDERED</td>
+<td style="text-align:center">DEPENDS ON IMPLEMENTATION</td>
+</tr>
+<tr>
+<td style="text-align:center">Positional Access</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center">NO</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">        Node prev, next;</span><br><span class="line">        <span class="keyword">int</span> val, key;</span><br><span class="line">        Node(<span class="keyword">int</span> k, <span class="keyword">int</span> v)&#123;</span><br><span class="line">            <span class="keyword">this</span>.val = v;</span><br><span class="line">            <span class="keyword">this</span>.key = k;</span><br><span class="line">        &#125;</span><br><span class="line">        Node()&#123;</span><br><span class="line">            <span class="keyword">this</span>(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Node&gt; mp;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> Node head, tail;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">        mp = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        head = <span class="keyword">new</span> Node();</span><br><span class="line">        tail = <span class="keyword">new</span> Node();</span><br><span class="line">        head.next = tail;</span><br><span class="line">        tail.prev = head;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        Node res = mp.get(key);</span><br><span class="line">        <span class="keyword">if</span>(res == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> value = res.val;</span><br><span class="line">        put(key, value);</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// System.out.println(111);</span></span><br><span class="line">        Node n = mp.get(key);</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="keyword">null</span>)&#123;</span><br><span class="line">            n = <span class="keyword">new</span> Node(key, value);</span><br><span class="line">            Node temp = head.next;</span><br><span class="line">            head.next = n;</span><br><span class="line">            n.next = temp;</span><br><span class="line">            n.prev = head;</span><br><span class="line">            temp.prev = n;</span><br><span class="line">            mp.put(key, n);</span><br><span class="line">            <span class="comment">// System.out.println(tail.prev.val);</span></span><br><span class="line">            <span class="keyword">if</span>(mp.size() &gt; capacity)&#123;</span><br><span class="line">                <span class="comment">// System.out.println(key);</span></span><br><span class="line">                temp = tail.prev;</span><br><span class="line">                temp.prev.next = tail;</span><br><span class="line">                tail.prev = temp.prev;</span><br><span class="line">                <span class="comment">// System.out.println(t.val);</span></span><br><span class="line">                mp.remove(temp.key);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            n.prev.next = n.next;</span><br><span class="line">            n.next.prev = n.prev;</span><br><span class="line">            mp.remove(key);</span><br><span class="line">            put(key, value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
             
         </div>
     </div>
@@ -288,7 +304,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/19/Max-Points-on-a-Line/"  data-tooltip="Max Points on a Line">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2088/04/08/contest/"  data-tooltip="Weekly Contest记录">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -296,7 +312,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/06/ECE542Note/" data-tooltip="ECE542Note">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/atoi/" data-tooltip="atoi">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -314,7 +330,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -322,7 +338,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -330,7 +346,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -370,7 +386,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/19/Max-Points-on-a-Line/"  data-tooltip="Max Points on a Line">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2088/04/08/contest/"  data-tooltip="Weekly Contest记录">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -378,7 +394,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/06/ECE542Note/" data-tooltip="ECE542Note">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/atoi/" data-tooltip="atoi">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -396,7 +412,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -404,7 +420,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -412,7 +428,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -437,7 +453,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -445,7 +461,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -453,7 +469,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/LRU-Cache/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>

@@ -6,25 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>Reach a number - This is my story</title>
+    <title>5. Longest Palindromic Substring - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+    <meta name="description" content="Leetcode第五题Longest Palindromic Substring。">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Reach a number">
-<meta property="og:url" content="http://yoursite.com/2018/09/17/reachanumber/index.html">
+<meta property="og:title" content="5. Longest Palindromic Substring">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+<meta property="og:description" content="Leetcode第五题Longest Palindromic Substring。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-26T19:04:29.718Z">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/391947/201809/391947-20180916233749134-798948486.png">
+<meta property="og:updated_time" content="2019-04-09T00:09:41.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reach a number">
-<meta name="twitter:description" content="I got this question in the online interview of Sohu. I didn’t find the best solution during the test.">
+<meta name="twitter:title" content="5. Longest Palindromic Substring">
+<meta name="twitter:description" content="Leetcode第五题Longest Palindromic Substring。">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/391947/201809/391947-20180916233749134-798948486.png">
     
     
         
@@ -230,14 +232,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Reach a number
+            5. Longest Palindromic Substring
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2018-09-17T20:08:21-04:00">
+    <time itemprop="datePublished" datetime="2019-04-08T19:15:05-04:00">
 	
-		    9月 17, 2018
+		    4月 08, 2019
     	
     </time>
     
@@ -248,27 +250,18 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>I got this question in the online interview of Sohu. I didn’t find the best solution during the test.</p>
+            <p>Leetcode第五题Longest Palindromic Substring。</p>
 <a id="more"></a>
-<p>Question:</p>
-<blockquote>
-<p>You are standing at position 0 on an infinite number line. There is a goal at position target.</p>
-<p>On each move, you can either go left or right. During the n-th move (starting from 1), you take n steps.</p>
-<p>Return the minimum number of steps required to reach the destination.</p>
+<blockquote><p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
+<p>Example 1:</p>
+<p>Input: “babad”<br>Output: “bab”<br>Note: “aba” is also a valid answer.<br>Example 2:</p>
+<p>Input: “cbbd”<br>Output: “bb”</p>
 </blockquote>
-<p>Example:</p>
-<blockquote>
-<p>Input: target = 3</p>
-<p>Output: 2</p>
-<p>Explanation:<br>On the first move we step from 0 to 1.<br>On the second step we step from 1 to 3.</p>
-</blockquote>
-<p>In this question, we need to pay attention to 2 points:</p>
-<ul>
-<li>Any N and -N have same result, because N and -N are symmetric with respect to the origin.</li>
-<li>If the sum of previous num is lager than target, and sum - target is even, so we can change the step at (sum - target) / 2 to negative,  and if sum - target is odd, we can continue, until sum - target is even.</li>
-</ul>
-<p>Here is the solution:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">reachNumber</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">1</span>, res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(target&lt;<span class="number">0</span>) target = -target;</span><br><span class="line">    <span class="keyword">while</span>(sum&lt;target||(sum&gt;target&amp;&amp;(sum-target)%<span class="number">2</span>==<span class="number">1</span>))&#123;</span><br><span class="line">        res++;</span><br><span class="line">        sum+=res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>This question is not very hare, but very tricky, especially for the second point.</p>
+<p>最长回文子序列，这道题就是要使用Manacher’s Algorithm，也就是马拉车算法。在做这一边遍之前，其实我做过很多次这道题，最早的一次提交是三年前，那时候本科找工作，最近的一次也是8个月前了，但是每次做的时候都会使用以某一个点为中心，向两边遍历判断是不是回文的方法，具体代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size()==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="built_in">string</span> res = s.substr(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;s.size()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i<span class="number">-1</span>&gt;=<span class="number">0</span>&amp;&amp;s[i<span class="number">-1</span>]==s[i+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">int</span> j = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">while</span>(i-j&gt;=<span class="number">0</span>&amp;&amp;i+j&lt;s.size())&#123;</span><br><span class="line">                    <span class="keyword">if</span>(s[i-j]!=s[i+j]) <span class="keyword">break</span>;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>((j<span class="number">-1</span>)*<span class="number">2</span>+<span class="number">1</span>&gt;res.size())&#123;</span><br><span class="line">                    res = s.substr(i-j+<span class="number">1</span>,(j<span class="number">-1</span>)*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==s[i+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(i-j&gt;=<span class="number">0</span>&amp;&amp;i+<span class="number">1</span>+j&lt;s.size())&#123;</span><br><span class="line">                    <span class="keyword">if</span>(s[i-j]!=s[i+<span class="number">1</span>+j]) <span class="keyword">break</span>;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>((j<span class="number">-1</span>)*<span class="number">2</span>+<span class="number">2</span>&gt;res.size())&#123;</span><br><span class="line">                    res = s.substr(i-j+<span class="number">1</span>,(j<span class="number">-1</span>)*<span class="number">2</span>+<span class="number">2</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>这个方法我觉得在最差情况下，应该是一个$O(n^2)$的方法，字符串所有值都相等的情况下，每个元素都会被浏览n次。这一次我决定仔细看一下马拉车算法。个人在理解的过程中，认为比较难理解的部分有这些。<br><div class="figure right" style="width:;"><a class="fancybox" href="https://img2018.cnblogs.com/blog/391947/201809/391947-20180916233749134-798948486.png" title="马拉车问题" data-fancybox-group="travel" target="_blank" rel="external"><img class="fig-img" src="https://img2018.cnblogs.com/blog/391947/201809/391947-20180916233749134-798948486.png" alt="马拉车问题"></a><span class="caption">马拉车问题</span></div><div style="clear:both;"></div></p>
+<h4 id="为什么i和j对于id对称，如果j是回文的，i也是回文的"><a href="#为什么i和j对于id对称，如果j是回文的，i也是回文的" class="headerlink" title="为什么i和j对于id对称，如果j是回文的，i也是回文的"></a>为什么i和j对于id对称，如果j是回文的，i也是回文的</h4><p>这个说法，有些拗口，并且不是很准确，准确的说是解释<code>p[i] = min( p[2 * id - i] , mx - i )</code>中，为什么当<code>p[2 * id -i]</code>（2<em>id-i其实就是图中的j）小于<code>mx-i</code>的时候，<code>i</code>到`i+[2</em>id -i]`的这部分一定是回文的。这部分是我最早做这个问题的时候不太能理解的。你可以通过数学的方法去证明这个问题，i - p[2 <em> id -i]距离中点id的距离和j+p[2 </em> id -i]相等，i+p[2 <em> id -i]和j-p[2 </em> id -i]的距离相等，所以这两段是相对id对称的，所以其中一段是回文的，另一段也是回文的。为了好理解，我的思考方式是这样的，将mx和mx的对称点看作是一条布，这条布的花纹是左右对称的，对称中心是id，如果我们吧这块布对折，那么i和j是重合的，i和j周围的颜色也是重合的，如果j的周围是对称的，i的也是。</p>
+<h4 id="字符串的预处理"><a href="#字符串的预处理" class="headerlink" title="字符串的预处理"></a>字符串的预处理</h4><p>为什么要加<code>#</code>和呢，是因为，正常我们考虑回文的时候要考虑两种情况，长度为奇和长度为偶，两种情况判断起来会有稍微的不同，就好比之前的代码里出现的那样，一种是以他为中，一种是以他的他的邻居为中心。加入这个特殊符号之后，就可以确保我们只需要考虑一种情况。</p>
+<h4 id="为什么要在前面加一个-符号"><a href="#为什么要在前面加一个-符号" class="headerlink" title="为什么要在前面加一个$符号"></a>为什么要在前面加一个$符号</h4><p>使用别人的给出的例子来解释，在字符串 “#1#2#2#1#2#2#” 中，中间的 ‘1’ 的位置是7，而半径是6，结果是7-6=1，刚好就是回文子串 “22122” 在原串 “122122” 中的起始位置1。那么我们再来验证下 “bob”，”o” 在 “#b#o#b#” 中的位置是3，但是半径是4，这一减成负的了，肯定不对。所以我们应该至少把中心位置向后移动一位，才能为0。因此我们在前面加一个无关的字符串，那么第二个例子解决了，第一个会不会因此而改变呢，此时1的位置是8，半径的结果是6，这样差值就变成了2，为了使结果变成1，我们将其除以2。除以二并不会影响第二个例子，因为0/2还是2。但我怀疑是不是会影响其他结果，于是我又试了3122122，1的位置是10，半径是4，所以开始的位置是2，没问题。</p>
+<p>理清了这些问题，我们就可以开始写代码了，最后我们的马拉车算法是长这样。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() &lt;= <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer(<span class="string">"$#"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)&#123;</span><br><span class="line">            sb.append(s.charAt(i));</span><br><span class="line">            sb.append(<span class="string">"#"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] p = <span class="keyword">new</span> <span class="keyword">int</span>[sb.length()];</span><br><span class="line">        <span class="keyword">int</span> mx = <span class="number">0</span>, id = <span class="number">0</span>, resLen = <span class="number">0</span>, resCenter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; sb.length(); ++i)&#123;</span><br><span class="line">            <span class="comment">// System.out.println(i);</span></span><br><span class="line">            p[i] = mx &gt; i? Math.min(p[<span class="number">2</span>*id - i], mx - i) : <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(i + p[i] &lt; sb.length() &amp;&amp; sb.charAt(i - p[i]) == sb.charAt(i + p[i]))&#123;</span><br><span class="line">                ++p[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(mx &lt; i + p[i])&#123;</span><br><span class="line">                mx = i + p[i];</span><br><span class="line">                id = i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(resLen &lt; p[i])&#123;</span><br><span class="line">                resLen = p[i];</span><br><span class="line">                resCenter = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring((resCenter - resLen)/<span class="number">2</span>, (resCenter - resLen)/<span class="number">2</span> + resLen - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
             
         </div>
@@ -288,7 +281,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/19/Max-Points-on-a-Line/"  data-tooltip="Max Points on a Line">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Reverse-Integer/"  data-tooltip="7. Reverse Integer">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -296,7 +289,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/06/ECE542Note/" data-tooltip="ECE542Note">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Longest-Substring-Without-Repeating-Characters/" data-tooltip="3. Longest Substring Without Repeating Characters">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -314,7 +307,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -322,7 +315,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -330,7 +323,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -370,7 +363,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/19/Max-Points-on-a-Line/"  data-tooltip="Max Points on a Line">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Reverse-Integer/"  data-tooltip="7. Reverse Integer">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -378,7 +371,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/06/ECE542Note/" data-tooltip="ECE542Note">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Longest-Substring-Without-Repeating-Characters/" data-tooltip="3. Longest Substring Without Repeating Characters">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -396,7 +389,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -404,7 +397,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -412,7 +405,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -437,7 +430,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -445,7 +438,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -453,7 +446,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/17/reachanumber/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/08/Longest-Palindromic-Substring/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>
