@@ -6,24 +6,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>ECE558复习 - This is my story</title>
+    <title>归档: 2019 - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="ECE558 Digital Imaging Systems, 数字图像处理系统，本来以为这门课是类似于本科学的CV的课程，结果发现没那么简单，课程内容对我来说比较难的部分是涉及到频域时域的部分，本科并没有这方面的基础，傅里叶变换完全是抓瞎。">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="ECE558复习">
-<meta property="og:url" content="http://yoursite.com/2018/10/05/ECE558-review/index.html">
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="This is my story">
+<meta property="og:url" content="http://yoursite.com/archives/2019/page/2/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="ECE558 Digital Imaging Systems, 数字图像处理系统，本来以为这门课是类似于本科学的CV的课程，结果发现没那么简单，课程内容对我来说比较难的部分是涉及到频域时域的部分，本科并没有这方面的基础，傅里叶变换完全是抓瞎。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-03T19:42:05.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ECE558复习">
-<meta name="twitter:description" content="ECE558 Digital Imaging Systems, 数字图像处理系统，本来以为这门课是类似于本科学的CV的课程，结果发现没那么简单，课程内容对我来说比较难的部分是涉及到频域时域的部分，本科并没有这方面的基础，傅里叶变换完全是抓瞎。">
+<meta name="twitter:title" content="This is my story">
     
     
         
@@ -52,7 +48,7 @@
         
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">This is my story</a>
@@ -76,7 +72,7 @@
         
     
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -218,129 +214,81 @@
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
                 
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    <section class="postShorten-group main-content-wrap">
     
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            ECE558复习
-        </h1>
-    
-    
-        <div class="post-meta">
-    <time itemprop="datePublished" datetime="2018-10-05T09:49:07-04:00">
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2019/04/03/Two-Sum/">
+                            1. Two_Sum
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-04-03T22:42:43-04:00">
 	
-		    10月 05, 2018
+		    4月 03, 2019
     	
     </time>
     
 </div>
 
-    
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <p>ECE558 Digital Imaging Systems, 数字图像处理系统，本来以为这门课是类似于本科学的CV的课程，结果发现没那么简单，课程内容对我来说比较难的部分是涉及到频域时域的部分，本科并没有这方面的基础，傅里叶变换完全是抓瞎。<br><a id="more"></a></p>
-<blockquote>
-<p>Image Formation 图像形成<br>Imageing Modalities 成像方式<br>Imagie Sensing 图像传感<br>spatial 空间的</p>
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <blockquote><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>Example:</p>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
 </blockquote>
-<h2 id="Lecture2"><a href="#Lecture2" class="headerlink" title="Lecture2"></a>Lecture2</h2><p>Lecture2讲到一个概念叫Sampling（取样）和Quantization（）量化，取样决定像素数量的多少，量化决定色彩的丰富度，取样和量化越高占用数据空间越大。<br>Observed Image = Function(source, scene/object, sensor, digitalization)</p>
-<h2 id="Lecture3"><a href="#Lecture3" class="headerlink" title="Lecture3"></a>Lecture3</h2><p>Lecture3介绍了一些关于图片矩阵的基本内容，比如Intersection交集，Complement补集，Difference差。</p>
-<p>###basic relationships betwwen pixels<br>这部分包括4-neighbors，8-neighbors，D-neighbors以及4-Path，8-Path和M-Path。可参考作业2的第二题。</p>
-<h3 id="Basic-Relationships-between-Regions"><a href="#Basic-Relationships-between-Regions" class="headerlink" title="Basic Relationships between Regions"></a>Basic Relationships between Regions</h3><p>Two Regions, R1 and Rj are said to be adjacent if their union forms a conneced set. 通常在考虑regions时，我们使用4-或8-adjacency.<br>Foreground vs Background, 假设图M中包含K个不连通的区域，记K的并集位<code>R_u</code>,<code>R_u</code>的补集位（<code>(R_u)^c</code>）,我们称<code>R_u</code>为Foreground，<code>(R_u)^c</code>为background<br>Inner boundary和Outer boundary，Inner boundary是指图形和补集之间在图形这边的边界，Outer boundary是指图形和补集之间在补集那边的边界</p>
-<h2 id="Lecture4主要讲的时关于光的问题。"><a href="#Lecture4主要讲的时关于光的问题。" class="headerlink" title="Lecture4主要讲的时关于光的问题。"></a>Lecture4主要讲的时关于光的问题。</h2><p>Mean &lt;-&gt; Hue 平均数 &lt;-&gt; 色调<br>Variance &lt;-&gt; Saturation 方差 &lt;-&gt; 饱和度<br>Area &lt;-&gt; Brightness 面积 &lt;-&gt; 亮度</p>
-<p>Brightness embodies the achromatic notion of intensity<br>Hue is an attribute associated with the dominant wavelength in a mixture of light waves.<br>Saturation refers to the relative purity or the amount of white light mixed with a hue.</p>
-<h3 id="Color-Spaces"><a href="#Color-Spaces" class="headerlink" title="Color Spaces"></a>Color Spaces</h3><p>对于表现色彩有几种方法，最常见的RGB，除此之外有HSV，YCbCr，La<em>b</em>，</p>
-<h2 id="Basic-Spatial-Domain-Processing"><a href="#Basic-Spatial-Domain-Processing" class="headerlink" title="Basic Spatial Domain Processing"></a>Basic Spatial Domain Processing</h2><ul>
-<li>Identity s=r negative s = (L-1) - r</li>
-<li>Log/Inverse c = c log(1+r)</li>
-<li>power law</li>
-<li>Threshold</li>
-</ul>
+<p>第一题，不是什么难题，大概一年多前刚开始刷leetcode的时候想的还是暴力破解$n^2$的方法，现在会马上想到使用map。我们可以用一个map把之前的值保存在遍历某个数的时候查找target-sum时候存在在map中，如果存在则是我们要的答案，这个方法的时间复杂度是O(n)。</p>
+<p>从这道题延申的一点是，java和c++中map的实现，c++中，map, set, multimap, multiset都是通过红黑树实现，插入、查看、删除的时间复杂度都是O(logN), 而在java中是一种数组+链表的实现方式，先依靠hash得到key在数组中的大体位置，然后用链表来规避冲突，因此java中map查找的时间复杂度近似为O(1)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; mp = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.get(target - nums[i]) != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span>[] res = &#123;mp.get(target - nums[i]), i&#125;;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            mp.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2019/04/03/Two-Sum/#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
             
         </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
         
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
         
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/03/Two-Sum/"  data-tooltip="1. Two_Sum">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/24/LinkedListCycle/" data-tooltip="Linked List Cycle">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
+        <li class="pagination-prev">
+            
+                <a class="btn btn--default btn--small" href="/ ">
+            
+                <i class="fa fa-angle-left text-base icon-mr"></i>
+                    <span>上一页</span>
             </a>
         </li>
         
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-facebook-official"></i>
-                </a>
-            </li>
         
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-google-plus"></i>
-                </a>
-            </li>
-        
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
+        <li class="pagination-number">第 2 页 共 2 页</li>
     </ul>
 </div>
 
-
-        
-        
-            
-        
-    </div>
-</article>
+</section>
 
 
 
@@ -351,104 +299,6 @@
 </footer>
 
             </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/03/Two-Sum/"  data-tooltip="1. Two_Sum">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/24/LinkedListCycle/" data-tooltip="Linked List Cycle">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-facebook-official"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-google-plus"></i>
-                </a>
-            </li>
-        
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <i id="btn-close-shareoptions" class="fa fa-close"></i>
-    <ul class="share-options">
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/05/ECE558-review/">
-                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
             
         </div>
         
@@ -730,8 +580,6 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
 <!--SCRIPTS END-->
-
-    
 
 
     </body>

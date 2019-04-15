@@ -296,6 +296,168 @@
     </article>
     
     
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2019/04/15/Copy-List-with-Random-Pointer/">
+                            138. Copy List with Random Pointer
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-04-15T11:42:15-04:00">
+	
+		    4月 15, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>Leetcode第138题，Copy List with Random Pointer。<br><blockquote><p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+<p>Return a deep copy of the list.</p>
+<p>Example 1:</p>
+<div class="figure right" style="width:;"><a class="fancybox" href="https://discuss.leetcode.com/uploads/files/1470150906153-2yxeznm.png" title="Copy-List-with-Random-Pointer" data-fancybox-group="example" target="_blank" rel="external"><img class="fig-img" src="https://discuss.leetcode.com/uploads/files/1470150906153-2yxeznm.png" alt="Copy-List-with-Random-Pointer"></a><span class="caption">Copy-List-with-Random-Pointer</span></div><div style="clear:both;"></div>
+
+<p>Input:<br>{“$id”:”1”,”next”:{“$id”:”2”,”next”:null,”random”:{“$ref”:”2”},”val”:2},”random”:{“$ref”:”2”},”val”:1}</p>
+<p>Explanation:<br>Node 1’s value is 1, both of its next and random pointer points to Node 2.<br>Node 2’s value is 2, its next pointer points to null and its random pointer points to itself.</p>
+</blockquote></p>
+<p>定义了一种特殊的链表，考察的是深度复制。通过建立一个hashmap去保存之前链表的节点和新创建的节点的对应，如果之后处理到的某个节点的random或者next指向之前创建过的节点，那么使用之前创建过的值，如果没有，则新建并放入hashmap中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">    public int val;</span></span><br><span class="line"><span class="comment">    public Node next;</span></span><br><span class="line"><span class="comment">    public Node random;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node(int _val,Node _next,Node _random) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        next = _next;</span></span><br><span class="line"><span class="comment">        random = _random;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">copyRandomList</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">        Map&lt;Node, Node&gt; mp = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Node dummy = <span class="keyword">new</span> Node(<span class="number">0</span>);</span><br><span class="line">        Node cur = dummy;</span><br><span class="line">        <span class="keyword">while</span>(head != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.containsKey(head))&#123;</span><br><span class="line">                cur.next = mp.get(head);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cur.next = <span class="keyword">new</span> Node(head.val);</span><br><span class="line">                mp.put(head, cur.next);</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="keyword">if</span>(head.random == <span class="keyword">null</span>)&#123;</span><br><span class="line">                cur.random = <span class="keyword">null</span>;   </span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(mp.containsKey(head.random))&#123;</span><br><span class="line">                cur.random = mp.get(head.random);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cur.random = <span class="keyword">new</span> Node(head.random.val);</span><br><span class="line">                mp.put(head.random, cur.random);</span><br><span class="line">            &#125;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2019/04/15/Copy-List-with-Random-Pointer/#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2019/04/15/csma-cd/Copy-List-with-Random-Pointer/">
+                            138. Copy List with Random Pointer
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-04-15T11:16:58-04:00">
+	
+		    4月 15, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Leetcode第138题，Copy List with Random Pointer。<br>
+                    
+                        <a href="/2019/04/15/csma-cd/Copy-List-with-Random-Pointer/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2019/04/15/Most-Common-Word/">
+                            819. Most Common Word
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-04-15T10:32:49-04:00">
+	
+		    4月 15, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Leetcode第819题，Most Common Word，cpp你什么时候能分割字符串呀。</p>
+                    
+                        <a href="/2019/04/15/Most-Common-Word/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2019/04/15/Number-of-islands/">
+                            200. Number of Islands
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-04-15T10:05:21-04:00">
+	
+		    4月 15, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Leetcode第200题，Number of Islands，跟图有关的题目。</p>
+                    
+                        <a href="/2019/04/15/Number-of-islands/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
     <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
@@ -433,168 +595,6 @@
                     <p>Leetcode第二题Add Two Numbers</p>
                     
                         <a href="/2019/04/04/Add-Two-Numbers/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2019/04/03/Two-Sum/">
-                            1. Two_Sum
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2019-04-03T22:42:43-04:00">
-	
-		    4月 03, 2019
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <blockquote><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<p>Example:</p>
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
-</blockquote>
-<p>第一题，不是什么难题，大概一年多前刚开始刷leetcode的时候想的还是暴力破解$n^2$的方法，现在会马上想到使用map。我们可以用一个map把之前的值保存在遍历某个数的时候查找target-sum时候存在在map中，如果存在则是我们要的答案，这个方法的时间复杂度是O(n)。</p>
-<p>从这道题延申的一点是，java和c++中map的实现，c++中，map, set, multimap, multiset都是通过红黑树实现，插入、查看、删除的时间复杂度都是O(logN), 而在java中是一种数组+链表的实现方式，先依靠hash得到key在数组中的大体位置，然后用链表来规避冲突，因此java中map查找的时间复杂度近似为O(1)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; mp = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.get(target - nums[i]) != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span>[] res = &#123;mp.get(target - nums[i]), i&#125;;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            mp.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2019/04/03/Two-Sum/#post-footer" class="postShorten-excerpt_link link">
-                                评论和共享
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/09/24/LinkedListCycle/">
-                            Linked List Cycle
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-09-24T18:58:05-04:00">
-	
-		    9月 24, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>It is a easy problem, however, the restrictive condition do not use extra space make this problem worth to be recorded.</p>
-                    
-                        <a href="/2018/09/24/LinkedListCycle/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/09/19/Max-Points-on-a-Line/">
-                            Max Points on a Line
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-09-19T20:50:03-04:00">
-	
-		    9月 19, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>This question is a hard question. But I don’t think it is hard and it is easy to get a O(n^2) method. It let me realized that float is unreliable, here is a reference, <a href="https://stackoverflow.com/questions/588004/is-floating-point-math-broken" target="_blank" rel="external">Is floating point math broken?
-</a>.<br>
-                    
-                        <a href="/2018/09/19/Max-Points-on-a-Line/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/09/17/reachanumber/">
-                            Reach a number
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-09-17T20:08:21-04:00">
-	
-		    9月 17, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>I got this question in the online interview of Sohu. I didn’t find the best solution during the test.</p>
-                    
-                        <a href="/2018/09/17/reachanumber/" class="postShorten-excerpt_link link">
                             阅读全文
                         </a>
                         
@@ -900,7 +900,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 25 篇文章
+                找到 29 篇文章
             </p>
         </div>
     </div>
