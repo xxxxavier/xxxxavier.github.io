@@ -13,19 +13,19 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Leetcode第138题，Copy List with Random Pointer。A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of th">
+    <meta name="description" content="Leetcode第138题，Copy List with Random Pointer。">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="138. Copy List with Random Pointer">
 <meta property="og:url" content="http://yoursite.com/2019/04/15/Copy-List-with-Random-Pointer/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="Leetcode第138题，Copy List with Random Pointer。A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of th">
+<meta property="og:description" content="Leetcode第138题，Copy List with Random Pointer。">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://discuss.leetcode.com/uploads/files/1470150906153-2yxeznm.png">
-<meta property="og:updated_time" content="2019-04-15T16:43:17.165Z">
+<meta property="og:updated_time" content="2019-04-15T16:44:25.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="138. Copy List with Random Pointer">
-<meta name="twitter:description" content="Leetcode第138题，Copy List with Random Pointer。A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of th">
+<meta name="twitter:description" content="Leetcode第138题，Copy List with Random Pointer。">
 <meta name="twitter:image" content="https://discuss.leetcode.com/uploads/files/1470150906153-2yxeznm.png">
     
     
@@ -250,14 +250,16 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Leetcode第138题，Copy List with Random Pointer。<br><blockquote><p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+            <p>Leetcode第138题，Copy List with Random Pointer。</p>
+<a id="more"></a>
+<blockquote><p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
 <p>Return a deep copy of the list.</p>
 <p>Example 1:</p>
 <div class="figure right" style="width:;"><a class="fancybox" href="https://discuss.leetcode.com/uploads/files/1470150906153-2yxeznm.png" title="Copy-List-with-Random-Pointer" data-fancybox-group="example" target="_blank" rel="external"><img class="fig-img" src="https://discuss.leetcode.com/uploads/files/1470150906153-2yxeznm.png" alt="Copy-List-with-Random-Pointer"></a><span class="caption">Copy-List-with-Random-Pointer</span></div><div style="clear:both;"></div>
 
 <p>Input:<br>{“$id”:”1”,”next”:{“$id”:”2”,”next”:null,”random”:{“$ref”:”2”},”val”:2},”random”:{“$ref”:”2”},”val”:1}</p>
 <p>Explanation:<br>Node 1’s value is 1, both of its next and random pointer points to Node 2.<br>Node 2’s value is 2, its next pointer points to null and its random pointer points to itself.</p>
-</blockquote></p>
+</blockquote>
 <p>定义了一种特殊的链表，考察的是深度复制。通过建立一个hashmap去保存之前链表的节点和新创建的节点的对应，如果之后处理到的某个节点的random或者next指向之前创建过的节点，那么使用之前创建过的值，如果没有，则新建并放入hashmap中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">    public int val;</span></span><br><span class="line"><span class="comment">    public Node next;</span></span><br><span class="line"><span class="comment">    public Node random;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node(int _val,Node _next,Node _random) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        next = _next;</span></span><br><span class="line"><span class="comment">        random = _random;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">copyRandomList</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">        Map&lt;Node, Node&gt; mp = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Node dummy = <span class="keyword">new</span> Node(<span class="number">0</span>);</span><br><span class="line">        Node cur = dummy;</span><br><span class="line">        <span class="keyword">while</span>(head != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.containsKey(head))&#123;</span><br><span class="line">                cur.next = mp.get(head);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cur.next = <span class="keyword">new</span> Node(head.val);</span><br><span class="line">                mp.put(head, cur.next);</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="keyword">if</span>(head.random == <span class="keyword">null</span>)&#123;</span><br><span class="line">                cur.random = <span class="keyword">null</span>;   </span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(mp.containsKey(head.random))&#123;</span><br><span class="line">                cur.random = mp.get(head.random);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cur.random = <span class="keyword">new</span> Node(head.random.val);</span><br><span class="line">                mp.put(head.random, cur.random);</span><br><span class="line">            &#125;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -287,7 +289,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/15/csma-cd/Copy-List-with-Random-Pointer/" data-tooltip="138. Copy List with Random Pointer">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/15/Most-Common-Word/" data-tooltip="819. Most Common Word">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -369,7 +371,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/15/csma-cd/Copy-List-with-Random-Pointer/" data-tooltip="138. Copy List with Random Pointer">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/15/Most-Common-Word/" data-tooltip="819. Most Common Word">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -722,7 +724,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 29 篇文章
+                找到 28 篇文章
             </p>
         </div>
     </div>
