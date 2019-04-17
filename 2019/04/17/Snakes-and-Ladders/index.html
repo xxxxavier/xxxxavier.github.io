@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="This is my story">
+    <title>909. Snakes and Ladders - This is my story</title>
+    <meta name="author" content="Xinhao Zhang">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Leetcode第909题，Snakes and Ladders。">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="909. Snakes and Ladders">
+<meta property="og:url" content="http://yoursite.com/2019/04/17/Snakes-and-Ladders/index.html">
+<meta property="og:site_name" content="This is my story">
+<meta property="og:description" content="Leetcode第909题，Snakes and Ladders。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2018/09/23/snakes.png">
+<meta property="og:updated_time" content="2019-04-17T15:51:40.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="909. Snakes and Ladders">
+<meta name="twitter:description" content="Leetcode第909题，Snakes and Ladders。">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2018/09/23/snakes.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/profile_zxh.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-sxklfps8ywgfyyjcowvnb4gxdgt0zjts3hsguljmv9uqanxjbnitrovtbrek.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">This is my story</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/profile_zxh.jpg" alt="作者的图片"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/profile_zxh.jpg" alt="作者的图片"/>
+                </a>
+                <h4 class="sidebar-profile-name">Xinhao Zhang</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>努力找工作</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/xxxxavier" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/in/xinhao-zhang-205103b2/" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="mailto://xavier.zxh@gmail.com" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                        <span class="sidebar-button-desc">邮箱</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            909. Snakes and Ladders
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2019-04-17T09:26:58-04:00">
+	
+		    4月 17, 2019
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>Leetcode第909题，Snakes and Ladders。</p>
+<a id="more"></a>
+<blockquote><p>On an N x N board, the numbers from 1 to N*N are written boustrophedonically starting from the bottom left of the board, and alternating direction each row.  For example, for a 6 x 6 board, the numbers are written as follows:</p>
+<div class="figure left" style="width:;"><a class="fancybox" href="https://assets.leetcode.com/uploads/2018/09/23/snakes.png" title="Snakes and Ladders" data-fancybox-group="example" target="_blank" rel="external"><img class="fig-img" src="https://assets.leetcode.com/uploads/2018/09/23/snakes.png" alt="Snakes and Ladders"></a><span class="caption">Snakes and Ladders</span></div><div style="clear:both;"></div>
+
+<p>You start on square 1 of the board (which is always in the last row and first column).  Each move, starting from square x, consists of the following:</p>
+<p>You choose a destination square S with number x+1, x+2, x+3, x+4, x+5, or x+6, provided this number is &lt;= N*N.<br>(This choice simulates the result of a standard 6-sided die roll: ie., there are always at most 6 destinations, regardless of the size of the board.)<br>If S has a snake or ladder, you move to the destination of that snake or ladder.  Otherwise, you move to S.<br>A board square on row r and column c has a “snake or ladder” if board[r][c] != -1.  The destination of that snake or ladder is board[r][c].</p>
+<p>Note that you only take a snake or ladder at most once per move: if the destination to a snake or ladder is the start of another snake or ladder, you do not continue moving.  (For example, if the board is <code>[[4,-1],[-1,3]]</code>, and on the first move your destination square is <code>2</code>, then you finish your first move at <code>3</code>, because you do not continue moving to <code>4</code>.)</p>
+<p>Return the least number of moves required to reach square N*N.  If it is not possible, return -1.</p>
+<p>Example 1:</p>
+<p>Input: [<br>[-1,-1,-1,-1,-1,-1],<br>[-1,-1,-1,-1,-1,-1],<br>[-1,-1,-1,-1,-1,-1],<br>[-1,35,-1,-1,13,-1],<br>[-1,-1,-1,-1,-1,-1],<br>[-1,15,-1,-1,-1,-1]]<br>Output: 4<br>Explanation:<br>At the beginning, you start at square 1 [at row 5, column 0].<br>You decide to move to square 2, and must take the ladder to square 15.<br>You then decide to move to square 17 (row 3, column 5), and must take the snake to square 13.<br>You then decide to move to square 14, and must take the ladder to square 35.<br>You then decide to move to square 36, ending the game.<br>It can be shown that you need at least 4 moves to reach the N*N-th square, so the answer is 4.</p>
+</blockquote>
+<p>在这道题上浪费了不少时间，其实不是一道特别难的题，走了一些弯路。<br>在做这道题的时候主要的问题出在这里，我在拿到这道题的时候第一反应是是用DFS，因为DFS写的顺手，但是在这种求两点最近距离的题目中DFS并不是一个合适的解法。原因在于，DFS会计算全部可能的路径，也就是说他的第一个点会有6种可能，这6种可能又分别对应6中可能，因此使用dfs会运行大约$6^(n+m)$次，会造成TTL。（这里想到了另一件事，或许在使用DFS的时候可以用数据结构保存之前走过的借，来避免重复的尝试，也就是memory的方法）。因此这道题合适的解法是BFS。在使用BFS的时候，自己又有一点没想到，那就是我怎么知道哪些点走到了，哪些点没走到，比如我从1-&gt;2-&gt;3和1-&gt;3两种情况都走到了3，我如果用一个visited来保存之前走过的点，那么1-&gt;2-&gt;3这种情况不久被忽略了么？看起来这个担忧在某种程度上是对的，但实际上由于你找的本来就是最短路径，你能从1-&gt;3为什么要走1-&gt;2-&gt;3呢，任何点通过前者都比后者走路的路要少，不太能理解当初自己把自己绕进去了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    void helper(set&lt;int&gt;&amp; visited, vector&lt;int&gt;&amp; mp, int start, int step, int&amp; res, int&amp; n)&#123;</span></span><br><span class="line"><span class="comment">        if(start == n * n)&#123;</span></span><br><span class="line"><span class="comment">            res = min(step, res);</span></span><br><span class="line"><span class="comment">            return;</span></span><br><span class="line"><span class="comment">        &#125; else if(start + 6 &gt;= n * n)&#123;</span></span><br><span class="line"><span class="comment">            res = min(step+1, res);</span></span><br><span class="line"><span class="comment">            return;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        visited.insert(start);</span></span><br><span class="line"><span class="comment">        for(int i = 1; i &lt; 7 &amp;&amp; start + i&lt;=n*n; ++i)&#123;</span></span><br><span class="line"><span class="comment">            if(mp[start + i] != 0 &amp;&amp; visited.count(mp[start + i]) == 0)&#123;</span></span><br><span class="line"><span class="comment">                helper(visited, mp, mp[start + i], step + 1, res, n);</span></span><br><span class="line"><span class="comment">            &#125;else if(mp[start + i] == 0 &amp;&amp; visited.count(start + i) == 0)&#123;</span></span><br><span class="line"><span class="comment">                helper(visited, mp, start + i, step + 1, res, n);</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        visited.erase(start);</span></span><br><span class="line"><span class="comment">        return;</span></span><br><span class="line"><span class="comment">    &#125;*/</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">snakesAndLadders</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = board.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; mp(n * n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(board[i][j] != <span class="number">-1</span>)&#123;</span><br><span class="line">                    <span class="keyword">int</span> idx1;</span><br><span class="line">                    <span class="keyword">if</span>((i+<span class="number">1</span>-n) % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                        idx1 = (n - i - <span class="number">1</span>) * n + (j + <span class="number">1</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        idx1 = (n - i - <span class="number">1</span>) * n + (n - j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    mp[idx1] = board[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; visited(n*n+<span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        q.push(&#123;<span class="number">1</span>, <span class="number">0</span>&#125;);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> start = q.front().first, dist = q.front().second;</span><br><span class="line">            q.pop();</span><br><span class="line">            visited[start] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(start == n * n) <span class="keyword">return</span> dist;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span> &amp;&amp; i + start &lt;= n * n; ++i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp[start + i] == <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(visited[start + i]) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        q.push(&#123;start + i, dist + <span class="number">1</span>&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(visited[mp[start + i]]) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        q.push(&#123;mp[start + i], dist + <span class="number">1</span>&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个解的效率非常的差，首先因为本身我们要遍历一遍矩阵，这就是m<em>n，其次在第二个循环中我们也是一个近似于m</em>n的操作，整个算法的runtime是256ms，只击败了大概5%的代码，因此代码可提高的部分非常的多。为了省去第一个m*n的循环，我们考虑在while循环中解决下标转换的问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">snakesAndLadders</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = board.size();</span><br><span class="line">        <span class="keyword">int</span> dst = n * n;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; visited(n*n+<span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">        q.push(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="keyword">while</span>(len--)&#123;</span><br><span class="line">                <span class="keyword">int</span> start = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                visited[start] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(start == dst) <span class="keyword">return</span> res;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span> &amp;&amp; i + start &lt;= dst; ++i)&#123;</span><br><span class="line">                    <span class="keyword">int</span> p = start + i - <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">int</span> row = n<span class="number">-1</span>-p/n;</span><br><span class="line">                    <span class="keyword">int</span> col = (p / n) % <span class="number">2</span> ? n<span class="number">-1</span>- p%n : p%n;</span><br><span class="line">                    <span class="keyword">int</span> next = board[row][col] == <span class="number">-1</span> ? start + i : board[row][col];</span><br><span class="line">                    <span class="keyword">if</span>(visited[next]) <span class="keyword">continue</span>;</span><br><span class="line">                    q.push(next);</span><br><span class="line">                &#125;    </span><br><span class="line">            &#125;</span><br><span class="line">            ++res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>提交玩这一次代码之后我发现时间并没有改变多少runtime依然在250ms左右，之后我自己的看了一下速度最快的那个代码，然后发现了一些小问题。<br>在使用BFS的时候，我的习惯是将所有的点先放入队中，取出，之后再判断是否合法，标记是否走过，换句话说我是在走到这个点的时候才标记这个点有没有走过，这就有一个问题，加入我从A出发能直接走到C，也能从B跳到C，这两种方式下一个点都是C并且步数是一样的，如果我在走到C之后才标记visited，其实这两种方式其实都会被放入队列中，会导致我们计算了一些虽然看起来有些不同，但其实是一样的路径(A-&gt;C和A从B走梯子到C)。为了证明我使用<code>[[-1,10,-1,15,-1],[-1,-1,18,2,20],[-1,-1,12,-1,-1],[2,4,11,18,8],[-1,-1,-1,-1,-1]]</code>这个矩阵作为输入，将开始点输出<code>1 2 3 4 5 8 18 3 4 5 8 18 11 4 5 8 18 11 4 5 8 18 11 8 18 11 11 11 12 12 14 19 20 21 10 23 15 11 11 11 11 11 12 12 14 19 20 21 10 23 15 12 12 14 15 20 12 12 14 19 20 21 10 23 15 12 12 14 15 20 12 12 14 19 20 21 10 23 15 12 12 14 15 20 12 12 14 19 20 21 10 23 15 12 12 14 15 20 12 12... 24 more lines</code>, 我们可以明显的看出这个结果是有非常多的重复项的，因此需要将这个标记visited的语句将将一个点加入队列中的时候就标记，这是相同矩阵的结果<code>1 2 3 4 5 8 18 11 12 14 19 20 21 10 23 15 25</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">snakesAndLadders</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = board.size();</span><br><span class="line">        <span class="keyword">int</span> dst = n * n;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; visited(n*n+<span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">        q.push(<span class="number">1</span>);</span><br><span class="line">        visited[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="keyword">while</span>(len--)&#123;</span><br><span class="line">                <span class="keyword">int</span> start = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">if</span>(start == dst) <span class="keyword">return</span> res;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span> &amp;&amp; i + start &lt;= dst; ++i)&#123;</span><br><span class="line">                    <span class="keyword">int</span> p = start + i - <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">int</span> row = n<span class="number">-1</span>-p/n;</span><br><span class="line">                    <span class="keyword">int</span> col = (p / n) % <span class="number">2</span> ? n<span class="number">-1</span>- p%n : p%n;</span><br><span class="line">                    <span class="keyword">int</span> next = board[row][col] == <span class="number">-1</span> ? start + i : board[row][col];</span><br><span class="line">                    <span class="keyword">if</span>(visited[next]) <span class="keyword">continue</span>;</span><br><span class="line">                    q.push(next);</span><br><span class="line">                    <span class="comment">// 决定效率的一句</span></span><br><span class="line">                    visited[next] = <span class="literal">true</span>;</span><br><span class="line">                &#125;    </span><br><span class="line">            &#125;</span><br><span class="line">            ++res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>接下来是Java的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">snakesAndLadders</span><span class="params">(<span class="keyword">int</span>[][] board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = board.length;</span><br><span class="line">        Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        queue.add(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[n*n];</span><br><span class="line">        visited[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">int</span> len = queue.size();</span><br><span class="line">            <span class="comment">// java这个地方不能直接用len--，对类型的限制还是比较死的</span></span><br><span class="line">            <span class="keyword">while</span>(len-- &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> start = queue.poll();</span><br><span class="line">                <span class="keyword">if</span>(start == n * n - <span class="number">1</span>) <span class="keyword">return</span> res;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt;= Math.min(start + <span class="number">6</span>, n * n - <span class="number">1</span>); ++i)&#123;</span><br><span class="line">                    <span class="keyword">int</span> row = n - <span class="number">1</span> - i / n;</span><br><span class="line">                    <span class="keyword">int</span> col = (i / n) % <span class="number">2</span> == <span class="number">0</span>? i % n : n - <span class="number">1</span> - (i%n);</span><br><span class="line">                    <span class="keyword">int</span> next = board[row][col] == -<span class="number">1</span>? i : board[row][col] - <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(visited[next] == <span class="keyword">true</span>) <span class="keyword">continue</span>;</span><br><span class="line">                    queue.add(next);</span><br><span class="line">                    visited[next] = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/17/Maximum-Frequency-Stack/"  data-tooltip="895. Maximum Frequency Stack">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/15/Copy-List-with-Random-Pointer/" data-tooltip="138. Copy List with Random Pointer">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Xinhao Zhang. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/17/Maximum-Frequency-Stack/"  data-tooltip="895. Maximum Frequency Stack">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/15/Copy-List-with-Random-Pointer/" data-tooltip="138. Copy List with Random Pointer">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/17/Snakes-and-Ladders/">
+                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/profile_zxh.jpg" alt="作者的图片"/>
+        
+            <h4 id="about-card-name">Xinhao Zhang</h4>
+        
+            <div id="about-card-bio"><p>努力找工作</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Graduate Student</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Raleigh, NC
+            </div>
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    />
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">没有找到文章</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/11/08/test/">
+                            <h3 class="media-heading">第一篇</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年11月8日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/11/09/炸酱面/">
+                            <img class="media-image" src="https://lh3.googleusercontent.com/TiUbAZCm9g8vsNUjgAqs2be1wzar5DrRepCSqvJph0Lobnwcc7FMNvul-zU5pqCa2X8MZh6px08fLrf4vb5VKboDcla-r1RJHzwfFXH_TtuMsGEuw_rk6Felg89OJS1xOCQdVwNPrafusT0LBebDwpqhZ0hJTcI_Sg8VEKuyAzBLSpcrdG7zbRYoSpnftOSBaH1Kepp7nXzd8aGyWP-YJRGUFZvUsppgKEpSStQHYMheyxHoq4EKGjbi4NrCLkFYXMYG4eXtYUVeKyJFe36zaxdAk4T5Gz_rsNT_HOOIr92D_uPhC2z07YPBGZIk3NvnKMAkzhOeCpatKnV0knBoKK33TFdPG1LbROm3RKWBDu3LJ3FCKNUT0tHdTUmBDrAt0hSQXqiRJLA24CHvdemLXDe_eA8tVGa6iUTFDlipYa0TFpstg73Isiihaa0kQOsagR5uWPaT39S3S5FBLsbu5li1kSK2yWHGWofhRNKmPEwXVVwiVrds3hQP2Xs_7olC2TZ4kmlCWpOcR9PnKU3t9qHToP1nwiY46vABSQbCjnEIwOINczUlYzL9dpyZyKe9wTJjcTmD4Oh0vNh_MPRLTvWlZkpeJmviy_VkR4MM=s1280-no" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/11/09/炸酱面/">
+                            <h3 class="media-heading">炸酱面</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年11月9日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>想来想去不知道再测试阶段给文章的题目取什么名字比较好，那就用今天的午饭吧。<br>今天打算修改tag，categories两部分。昨天修改了左边框的图片，但是感觉图片加载太慢了，应该是因为图片过大导致的，今天尽量将图片压缩一下。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/11/11/leetcode533/">
+                            <h3 class="media-heading">Leetcode 533. Lonely Pixel II</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年11月11日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>今天测试一下代码功能，正好今天刷了一道题Leetcode 533。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/11/20/leetcode628-544/">
+                            <h3 class="media-heading">544. Output Contest Matches/628. Maximum Product of Three Numbers</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年11月20日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>今天说两道水题，544. Output Contest Matches和628. Maximum Product of Three Numbers。这两道题都比较简单，我的做题顺序是根据ac率从高到低做的，所以目前也没有遇到什么太难的题。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/11/20/markdown-guide/">
+                            <h3 class="media-heading">Markdown学习笔记--引用/列表/代码</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年11月20日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>这篇文章的目的是为了更好的取了解markdown的写法，markdown目前的应用还是很广泛的，不论是Github的Readme文件还是我现在使用的Github pages，都是用的是markdown的语法，Atom中有一个很好的插件Markdown Preview可以之间看生成的文件，非常好用。文章还会结合一些hexo中的语法。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/12/26/301/">
+                            <h3 class="media-heading">301. Remove Invalid Parentheses</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年12月26日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>今天更新的题目是301. Remove Invalid Parentheses，先贴题目<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2018/03/28/new-plan/">
+                            <h3 class="media-heading">新计划</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018年3月28日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>时隔三个月，我终于又开始更新了。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2018/04/24/SDN-project-note/">
+                            <h3 class="media-heading">SDN Project笔记(1)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018年4月24日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>这一篇是记录做SDN project时遇到的问题以及基本的配置过程。内容非常的凌乱，基本是想到一点是一点，解决一点是一点。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2018/04/24/SDN-project-note-1/">
+                            <h3 class="media-heading">SDN Project笔记(2)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018年4月24日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>这些内容是我添加在Github项目README中的，是模拟Explicit Congestion Notification(ECN)功能的部分。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2018/09/03/stockquestion/">
+                            <h3 class="media-heading">Stock problem</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018年9月3日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Stock problem is an important part of dynamic programming. In Leetcode, there are six different question about the stock.</p>
+<ul>
+<li>Best Time to Buy and Sell Stock</li>
+<li>Best Time to Buy and Sell Stock II</li>
+<li>Best Time to Buy and Sell Stock III</li>
+<li>Best Time to Buy and Sell Stock IV</li>
+<li>Best Time to Buy and Sell Stock with Cooldown</li>
+<li>Best Time to Buy and Sell Stock with Transaction Fee</li>
+</ul></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="没有找到文章"
+                data-message-one="找到 1 篇文章"
+                data-message-other="找到 {n} 篇文章">
+                找到 32 篇文章
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('https://lh3.googleusercontent.com/CBHWSTtgDDfr-8XfdpK9B9m6EsVyWA6GePK9S2nyX4I2VsNXY3KzwzyCCAkYY-wI97Of4iTf1ctt4qxL1KZBBJxOXsEJ0EMbB1T7fKqZRx7LdDKjjjo_OFF9x9smceR2XUYiLNkZXlNzYQwcA6gkao217TpweuYUw4m6h_YEVXPpMs0gpUpw7q-WUgjjm9FBeaYR4L0qxRqPZaijNfeo4tCra6uazyDfZmP5DFYXrGpIM5FUmM2sASJN-WeusrNTjhI3YzSPHl-NK9AxbU5HlCsJOXr6XFZu4dWVGjSLKJKF0nwmvzkqFn-zvw5-I8YBxqOUbH3AUTmEauUrzHWyZ_J3jJgiwyoA3MudSlDJKF2SuhHyV_mc-O9AbtCMjCyjx3htpTw4cvNhdu0n2bGzSdr4Iq4fOPJGF8fFx3kcL0Drz_1FzZ12T0b085T9HuC_5S15dfRlplySSK0SF7ofXl-cE2MfpxMva06SgwLylNRL9IqFjHcd3F7qgEsY_Xji0QXH0fHPj1Ip5VdBO12W1dr31vkQX1Y-BHiQGdbuVqe6fryLu39KmNAL4lH2gbvpl3-k7s7Y3jAl3ZS0A4mWv0mwbG4g4vFNly6XBz1z=w2106-h1404-no');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+    </body>
+</html>
