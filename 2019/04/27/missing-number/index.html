@@ -6,24 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>3. Longest Substring Without Repeating Characters - This is my story</title>
+    <title>268. Missing Number - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
+    <meta name="description" content="Leetcode第268题，Missing Number.">
+<meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="3. Longest Substring Without Repeating Characters">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/index.html">
+<meta property="og:title" content="268. Missing Number">
+<meta property="og:url" content="http://yoursite.com/2019/04/27/missing-number/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
+<meta property="og:description" content="Leetcode第268题，Missing Number.">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-08T16:08:44.601Z">
+<meta property="og:updated_time" content="2019-04-27T19:44:03.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3. Longest Substring Without Repeating Characters">
-<meta name="twitter:description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
+<meta name="twitter:title" content="268. Missing Number">
+<meta name="twitter:description" content="Leetcode第268题，Missing Number.">
     
     
         
@@ -229,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            3. Longest Substring Without Repeating Characters
+            268. Missing Number
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2019-04-04T14:36:55-04:00">
+    <time itemprop="datePublished" datetime="2019-04-27T15:18:30-04:00">
 	
-		    4月 04, 2019
+		    4月 27, 2019
     	
     </time>
     
@@ -247,22 +248,29 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Leetcode第三题Longest Substring Without Repeating Characters。</p>
+            <p>Leetcode第268题，Missing Number.</p>
 <a id="more"></a>
-<blockquote><p>Given a string, find the length of the longest substring without repeating characters.</p>
+<blockquote><p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
 <p>Example 1:</p>
-<p>Input: “abcabcbb”<br>Output: 3<br>Explanation: The answer is “abc”, with the length of 3.<br>Example 2:</p>
-<p>Input: “bbbbb”<br>Output: 1<br>Explanation: The answer is “b”, with the length of 1.<br>Example 3:</p>
-<p>Input: “pwwkew”<br>Output: 3<br>Explanation: The answer is “wke”, with the length of 3.<br>             Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+<p>Input: [3,0,1]<br>Output: 2<br>Example 2:</p>
+<p>Input: [9,6,4,2,3,5,7,0,1]<br>Output: 8</p>
 </blockquote>
-<p>这是一道滑动窗口的问题，又让我想起了当时onsite的时候，其实我真的没想到那道题可以用滑动窗口做。</p>
-<p>回到这道题目，其实不是很难，我们需要一个Set去记录重复，需要一个变量<code>left</code>记录当前结果开始的位置，需要一个变量<code>res</code>记录最大值，当在<code>s[i]</code>遇到重复的时候，我们假定于<code>s[i]</code>相同的那个元素在位置<code>j</code>,既s[i] == s[j]并且i&gt;j&gt;=left,我们通过移动left，寻找j的位置，并把j及其之前的值移出Set，构建一个新的没有重复的子字符串。</p>
-<p>考虑时间复杂度和空间复杂度的问题，因为left的存在，所以每个元素最多被访问两次，所以时间复杂度是O(n)。空间复杂度上，最坏的情况是全部没有重复，所以应该也是O(n)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        Set&lt;Character&gt; cache = <span class="keyword">new</span> HashSet();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)&#123;</span><br><span class="line">            <span class="keyword">while</span>(cache.contains(s.charAt(i)))&#123;</span><br><span class="line">                <span class="comment">//while(s.charAt(left) != s.charAt(i))&#123;</span></span><br><span class="line">                    cache.remove(s.charAt(left));</span><br><span class="line">                    ++left;</span><br><span class="line">                <span class="comment">//&#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            cache.add(s.charAt(i));</span><br><span class="line">            res = Math.max(res, cache.size());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题是在面经中看到的题目，不是一道难题，又重新做了一下，最早的想法，也就是第一次提交，是使用HashMap记录所有在数组中出现的数字，然后再使用for loop对检查0-n中哪一个值没有出现过，这个值就是missing number，这个方法的问题在于，他的空间复杂度是n，并且之前提到过在C++中，搜索的时间复杂度并不是O(1)，所以并不算高效。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; m(nums.size()+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            m[nums[i]] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;m.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(m[i]==<span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>看Solution的解中，里面提到了一个解法，做到了O(1)的空间复杂度,解法的思路有点类似我们之前做过的136. Single Number的思路有些相似，136中我们知道是利用<code>n ^ n = 0</code>的性质，对数组进行遍历，做或运算，如果某个位出现过偶数次1则该位最后为0，如果某个位出现过奇数次1，则该位最后位1，最后的到结果。举个例子加入输入是{1,1,2,2,3}, 1的二进制表示是01，2的二进制表示是10，3的二进制表示是11，在第一位（高位）上，出现过3次1，分别是2，2，3，在第二位（低位）上，出现过3次1，分别是1，1，3，因此最后得到的结果就是3（11）。应用到这道题就是我先让res等于这个数组的长度n，如果不缺这个这个数字的话，那么本身应该又n+1个数字（0到n），然后遍历数组，分别与index和nums[index]做或运算，最后的结果就是missing的值，因为除了missing的值之外，其他的值都做了两次或运算，等于没做，之后missing number只做了一次。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            res ^= i;</span><br><span class="line">            res ^= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
+
+            </div>
         
         
             <div class="post-actions-wrap">
@@ -270,7 +278,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Longest-Palindromic-Substring/"  data-tooltip="5. Longest Palindromic Substring">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number/"  data-tooltip="136. Single Number">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -278,7 +286,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Add-Two-Numbers/" data-tooltip="2. Add Two Numbers">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/17/Serialize-and-Deserialize-Binary-Tree/" data-tooltip="297. Serialize and Deserialize Binary Tree">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -296,7 +304,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -304,7 +312,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -312,7 +320,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -352,7 +360,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Longest-Palindromic-Substring/"  data-tooltip="5. Longest Palindromic Substring">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number/"  data-tooltip="136. Single Number">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -360,7 +368,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Add-Two-Numbers/" data-tooltip="2. Add Two Numbers">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/17/Serialize-and-Deserialize-Binary-Tree/" data-tooltip="297. Serialize and Deserialize Binary Tree">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -378,7 +386,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -386,7 +394,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -394,7 +402,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -419,7 +427,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -427,7 +435,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -435,7 +443,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/missing-number/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>

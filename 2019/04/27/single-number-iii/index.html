@@ -6,24 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>3. Longest Substring Without Repeating Characters - This is my story</title>
+    <title>260. Single Number III - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
+    <meta name="description" content="Leetcode第260题，Single Number III。">
+<meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="3. Longest Substring Without Repeating Characters">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/index.html">
+<meta property="og:title" content="260. Single Number III">
+<meta property="og:url" content="http://yoursite.com/2019/04/27/single-number-iii/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
+<meta property="og:description" content="Leetcode第260题，Single Number III。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-08T16:08:44.601Z">
+<meta property="og:updated_time" content="2019-04-27T20:56:58.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3. Longest Substring Without Repeating Characters">
-<meta name="twitter:description" content="Leetcode第三题Longest Substring Without Repeating Characters。">
+<meta name="twitter:title" content="260. Single Number III">
+<meta name="twitter:description" content="Leetcode第260题，Single Number III。">
     
     
         
@@ -229,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            3. Longest Substring Without Repeating Characters
+            260. Single Number III
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2019-04-04T14:36:55-04:00">
+    <time itemprop="datePublished" datetime="2019-04-27T16:30:12-04:00">
 	
-		    4月 04, 2019
+		    4月 27, 2019
     	
     </time>
     
@@ -247,22 +248,22 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Leetcode第三题Longest Substring Without Repeating Characters。</p>
-<a id="more"></a>
-<blockquote><p>Given a string, find the length of the longest substring without repeating characters.</p>
-<p>Example 1:</p>
-<p>Input: “abcabcbb”<br>Output: 3<br>Explanation: The answer is “abc”, with the length of 3.<br>Example 2:</p>
-<p>Input: “bbbbb”<br>Output: 1<br>Explanation: The answer is “b”, with the length of 1.<br>Example 3:</p>
-<p>Input: “pwwkew”<br>Output: 3<br>Explanation: The answer is “wke”, with the length of 3.<br>             Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
-</blockquote>
-<p>这是一道滑动窗口的问题，又让我想起了当时onsite的时候，其实我真的没想到那道题可以用滑动窗口做。</p>
-<p>回到这道题目，其实不是很难，我们需要一个Set去记录重复，需要一个变量<code>left</code>记录当前结果开始的位置，需要一个变量<code>res</code>记录最大值，当在<code>s[i]</code>遇到重复的时候，我们假定于<code>s[i]</code>相同的那个元素在位置<code>j</code>,既s[i] == s[j]并且i&gt;j&gt;=left,我们通过移动left，寻找j的位置，并把j及其之前的值移出Set，构建一个新的没有重复的子字符串。</p>
-<p>考虑时间复杂度和空间复杂度的问题，因为left的存在，所以每个元素最多被访问两次，所以时间复杂度是O(n)。空间复杂度上，最坏的情况是全部没有重复，所以应该也是O(n)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        Set&lt;Character&gt; cache = <span class="keyword">new</span> HashSet();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)&#123;</span><br><span class="line">            <span class="keyword">while</span>(cache.contains(s.charAt(i)))&#123;</span><br><span class="line">                <span class="comment">//while(s.charAt(left) != s.charAt(i))&#123;</span></span><br><span class="line">                    cache.remove(s.charAt(left));</span><br><span class="line">                    ++left;</span><br><span class="line">                <span class="comment">//&#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">            cache.add(s.charAt(i));</span><br><span class="line">            res = Math.max(res, cache.size());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>Leetcode第260题，Single Number III。<br><a id="more"></a><br><blockquote><p>Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</p>
+<p>Example:</p>
+<p>Input:  [1,2,1,3,2,5]<br>Output: [3,5]</p>
+</blockquote><br>Single Number三兄弟的最后一题，这道题又考的是另一个思路，他的关键点在于-分组，你如何把这个数组分成两组，并且将两个单独存在的元素放在着两个组里。一切还是基于或操作的特性上。首先我们将数组所有的数与0进行或操作，得到一个结果<code>n</code>，并且<code>n = r1 ^ r2</code>， n一定不为0，因为r1和r2是不相等的，因此我们寻找某一位m，在m位上n为1。由此我们可以将数组成两组，m位上为1的和m位上为0的，这样就把r1和r2分到了两个不同的数组里，再利用Single Number的解法就可得到结果。<br>值得一提的是寻找这个m位的方法<code>n &amp;= -n;</code>，是利用了补码的知识。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] singleNumber(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            n ^= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        n &amp;= -n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>((nums[i] &amp; n) == <span class="number">0</span>)&#123;</span><br><span class="line">                res[<span class="number">0</span>] ^= nums[i];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                res[<span class="number">1</span>] ^= nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Leetcode/">Leetcode</a>
+
+            </div>
         
         
             <div class="post-actions-wrap">
@@ -270,7 +271,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Longest-Palindromic-Substring/"  data-tooltip="5. Longest Palindromic Substring">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2088/04/08/contest/"  data-tooltip="Weekly Contest记录">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -278,7 +279,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Add-Two-Numbers/" data-tooltip="2. Add Two Numbers">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number-ii/" data-tooltip="137. Single Number II">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -296,7 +297,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -304,7 +305,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -312,7 +313,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -352,7 +353,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/08/Longest-Palindromic-Substring/"  data-tooltip="5. Longest Palindromic Substring">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2088/04/08/contest/"  data-tooltip="Weekly Contest记录">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -360,7 +361,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/04/Add-Two-Numbers/" data-tooltip="2. Add Two Numbers">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number-ii/" data-tooltip="137. Single Number II">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -378,7 +379,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -386,7 +387,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -394,7 +395,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -419,7 +420,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -427,7 +428,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -435,7 +436,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/04/Longest-Substring-Without-Repeating-Characters/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/single-number-iii/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>
