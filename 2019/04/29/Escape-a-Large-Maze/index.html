@@ -6,25 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="This is my story">
-    <title>260. Single Number III - This is my story</title>
+    <title>1036. Escape a Large Maze - This is my story</title>
     <meta name="author" content="Xinhao Zhang">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Leetcode第260题，Single Number III。">
+    <meta name="description" content="Leetcode第1036题，Escape a Large Maze。">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="260. Single Number III">
-<meta property="og:url" content="http://yoursite.com/2019/04/27/single-number-iii/index.html">
+<meta property="og:title" content="1036. Escape a Large Maze">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/Escape-a-Large-Maze/index.html">
 <meta property="og:site_name" content="This is my story">
-<meta property="og:description" content="Leetcode第260题，Single Number III。">
+<meta property="og:description" content="Leetcode第1036题，Escape a Large Maze。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-27T20:59:38.991Z">
+<meta property="og:updated_time" content="2019-04-29T19:09:16.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="260. Single Number III">
-<meta name="twitter:description" content="Leetcode第260题，Single Number III。">
+<meta name="twitter:title" content="1036. Escape a Large Maze">
+<meta name="twitter:description" content="Leetcode第1036题，Escape a Large Maze。">
     
     
         
@@ -230,14 +230,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            260. Single Number III
+            1036. Escape a Large Maze
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2019-04-27T16:30:12-04:00">
+    <time itemprop="datePublished" datetime="2019-04-29T13:50:13-04:00">
 	
-		    4月 27, 2019
+		    4月 29, 2019
     	
     </time>
     
@@ -248,10 +248,16 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Leetcode第260题，Single Number III。<br><a id="more"></a><br><blockquote><p>Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</p>
-<p>Example:</p>
-<p>Input:  [1,2,1,3,2,5]<br>Output: [3,5]</p>
-</blockquote><br>Single Number三兄弟的最后一题，这道题又考的是另一个思路，他的关键点在于-分组，你如何把这个数组分成两组，并且将两个单独存在的元素放在着两个组里。一切还是基于或操作的特性上。首先我们将数组所有的数与0进行或操作，得到一个结果<code>n</code>，并且<code>n = r1 ^ r2</code>， n一定不为0，因为r1和r2是不相等的，因此我们寻找某一位m，在m位上n为1。由此我们可以将数组成两组，m位上为1的和m位上为0的，这样就把r1和r2分到了两个不同的数组里，再利用Single Number的解法就可得到结果。<br>值得一提的是寻找这个m位的方法<code>n &amp;= -n;</code>，是利用了补码的知识。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] singleNumber(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            n ^= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        n &amp;= -n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>((nums[i] &amp; n) == <span class="number">0</span>)&#123;</span><br><span class="line">                res[<span class="number">0</span>] ^= nums[i];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                res[<span class="number">1</span>] ^= nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>Leetcode第1036题，Escape a Large Maze。<br><a id="more"></a><br><blockquote><p>In a 1 million by 1 million grid, the coordinates of each grid square are (x, y) with 0 &lt;= x, y &lt; 10^6.</p>
+<p>We start at the source square and want to reach the target square.  Each move, we can walk to a 4-directionally adjacent square in the grid that isn’t in the given list of blocked squares.</p>
+<p>Return true if and only if it is possible to reach the target square through a sequence of moves.</p>
+<p>Example 1:</p>
+<p>Input: blocked = [ [0,1],[1,0] ], source = [0,0], target = [0,2]<br>Output: false<br>Explanation:<br>The target square is inaccessible starting from the source square, because we can’t walk outside the grid.<br>Example 2:</p>
+<p>Input: blocked = [], source = [0,0], target = [999999,999999]<br>Output: true<br>Explanation:<br>Because there are no blocked cells, it’s possible to reach the target square.</p>
+</blockquote><br>这道题是第134周Weekly contest中的一道题目，难度给了hard，做了40分钟并没有做出来。</p>
+<p>先说自己的思路，自己的思路很简单如果想让A无法到达B，那么需要在棋盘上画个圈或者与边界围城一个圈才可以，于是在这40分钟内我一直在考虑怎么找出这个圈，并且想到过初中有公式可以证明两点是否在线段的两边。没有考虑过BFS或DFS，原因是因为在题干的描述中说过棋盘非常大，无论是BFS或DFS都会导致超时。</p>
+<p>实际看到这道题的解之后，非常好奇这些大佬没是如何想到这些解法的。这道题的解法是使用BFS，并且需要利用题干中的信息<code>0 &lt;= blocked.length &lt;= 200</code>,之前我们说过假如A不能到达B，那么一定是有一个封闭的圈将A或者B围住了，那么这个封闭的圈最大的面积是多少呢？假如200个block完全围住A或者B，有三种情况：1. 200个blocks围成一个圆，把其中一个点围住（周长一定，圆的面积最大）。2. 200个blocks和两条边组成一个扇形，将其中一个点围住。3. 200个点和两条边组成一个三角形将点围住。1的结果是3184，2的结果是12738，3的结果是20000，所以最大面积就是20000。换句话说就是如果我能从其中一点向外走超过20000步，这个包围圈一定不能圈主这个这点，因此使用bfs向外走，测试能不能向外走20000步，如果可以则说明这些点没有围住他。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> MAX_STEP;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dirt = &#123; &#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">-1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">0</span>,<span class="number">-1</span>&#125; &#125;;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">( <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt;&gt;&amp; b, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; source, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; target)</span></span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt;&gt; visited;</span><br><span class="line">        <span class="built_in">queue</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        q.push(source);</span><br><span class="line">        <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">        visited[source[<span class="number">0</span>]][source[<span class="number">1</span>]] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> x = q.front()[<span class="number">0</span>], y = q.front()[<span class="number">1</span>];</span><br><span class="line">            q.pop();</span><br><span class="line">            <span class="keyword">if</span>(x == target[<span class="number">0</span>] &amp;&amp; y == target[<span class="number">1</span>]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            step += <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(step &gt;= MAX_STEP)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//cout &lt;&lt; 222 &lt;&lt; endl;</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; ++i)&#123;</span><br><span class="line">                <span class="keyword">int</span> nx = x + dirt[i][<span class="number">0</span>], ny = y + dirt[i][<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span>(nx &lt; <span class="number">0</span> || ny &lt; <span class="number">0</span> || nx &gt;= <span class="number">1e6</span> || ny &gt;= <span class="number">1e6</span> || visited[nx][ny] || b[nx][ny]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    visited[nx][ny] = <span class="literal">true</span>;</span><br><span class="line">                    q.push(&#123;nx, ny&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isEscapePossible</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; blocked, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; source, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(blocked.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//queue&lt;vector&lt;int&gt;&gt; q;</span></span><br><span class="line">        MAX_STEP = <span class="number">1.42</span> * blocked.size();</span><br><span class="line">        MAX_STEP *= MAX_STEP;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt;&gt; b;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; blocked.size(); ++i)&#123;</span><br><span class="line">            b[blocked[i][<span class="number">0</span>]][blocked[i][<span class="number">1</span>]] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> helper(b, source, target) &amp;&amp; helper(b, target, source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
             
         </div>
@@ -271,7 +277,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/29/Escape-a-Large-Maze/"  data-tooltip="1036. Escape a Large Maze">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/29/Subarray-Sums-Divisible-by-K/"  data-tooltip="974. Subarray Sums Divisible by K">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -279,7 +285,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number-ii/" data-tooltip="137. Single Number II">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number-iii/" data-tooltip="260. Single Number III">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -297,7 +303,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -305,7 +311,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -313,7 +319,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -353,7 +359,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/29/Escape-a-Large-Maze/"  data-tooltip="1036. Escape a Large Maze">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/29/Subarray-Sums-Divisible-by-K/"  data-tooltip="974. Subarray Sums Divisible by K">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -361,7 +367,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number-ii/" data-tooltip="137. Single Number II">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/04/27/single-number-iii/" data-tooltip="260. Single Number III">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -379,7 +385,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -387,7 +393,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -395,7 +401,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -420,7 +426,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -428,7 +434,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -436,7 +442,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/27/single-number-iii/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/29/Escape-a-Large-Maze/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>

@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="This is my story">
 <meta property="og:description" content="Leetcode第137题，Single Number II。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-27T20:33:49.785Z">
+<meta property="og:updated_time" content="2019-04-27T20:59:42.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="137. Single Number II">
 <meta name="twitter:description" content="Leetcode第137题，Single Number II。">
@@ -256,6 +256,7 @@
 <p>Input: [0,1,0,1,0,1,99]<br>Output: 99</p>
 </blockquote><br>这道题是Single Number的升级版，我还是觉得挺难的，基本上每次做这道题都是看答案做出来的，这道题的难点就是如何用O(1)的方式去记录那些数出现了一次，哪些数出现了两次，哪些数出现了三次。为此准备了三个变量分别是one，two，three。根据在Single Number中提到的或运算法则，我们通过将one与nums[i]进行或运算来确定这个数是不是出现了一次（实际上是奇数次）。two保存出现了偶数次的值，one&amp;nums[i]得到出现了对第二次的位，然后让two与这个结果进行与或运算更新two，最后，如果在这轮计算中，有一位在one或two中都为1，则这一位出现了第三次，通过three记录，此时我们需要将one和two中对应的位变为0。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> one = <span class="number">0</span>, two = <span class="number">0</span>, three = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">            two |= one &amp; nums[i];</span><br><span class="line">            one ^= nums[i];</span><br><span class="line">            three = two &amp; one;</span><br><span class="line">            one &amp;= ~three;</span><br><span class="line">            two &amp;= ~three;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> one;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
             
         </div>
     </div>
@@ -717,7 +718,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 36 篇文章
+                找到 38 篇文章
             </p>
         </div>
     </div>
